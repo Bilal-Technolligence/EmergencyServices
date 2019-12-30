@@ -23,9 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapter.ViewHolder> {
-    ArrayList<AddServiceAttr> addServiceAttrs;
+    ArrayList<UserAttr> addServiceAttrs;
     private Context context;
-    public FriendFamilyAdapter(ArrayList<AddServiceAttr> addServiceAttrs, Context context){
+    public FriendFamilyAdapter(ArrayList<UserAttr> addServiceAttrs, Context context){
         this.context=context;
         this.addServiceAttrs = addServiceAttrs;
     }
@@ -44,9 +44,7 @@ public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapte
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final
-                String Id = null;
-                Id = addServiceAttrs.get(position).getId();
+                final String Id = addServiceAttrs.get(position).getId();
 
                 final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setMessage("Are you sure to remove relation?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +19,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.ViewHolder> {
-    ArrayList<AddServiceAttr> addServiceAttrs;
+    ArrayList<UserAttr> addServiceAttrs;
     private Context context;
-    public SearchListAdapter(ArrayList<AddServiceAttr> addServiceAttrs, Context context){
+    public SearchListAdapter(ArrayList<UserAttr> addServiceAttrs, Context context){
         this.context=context;
         this.addServiceAttrs = addServiceAttrs;
     }
@@ -32,7 +34,7 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Picasso.get().load(addServiceAttrs.get(position).getImage_url()).into(holder.profileImage);
+        Picasso.get().load(addServiceAttrs.get(position).getImageUrl()).into(holder.profileImage);
         holder.name.setText(addServiceAttrs.get(position).getName());
 
 
@@ -41,7 +43,7 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Vi
             public void onClick(View v) {
                 String Id = null;
                 Id = addServiceAttrs.get(position).getId();
-
+                Toast.makeText(context , Id , Toast.LENGTH_SHORT).show();
 //                Intent i = new Intent(context , ServiceDetail.class);
 //                i.putExtra("Id" , serviceId);
 //                context.startActivity(i);
