@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep( 4000 );
 
-                    Intent intent = new Intent(getApplicationContext(), VictumHelpActivity.class );
+                    Intent intent = new Intent(getApplicationContext(), Login.class );
                     startActivity( intent );
                     finish();
                     super.run();

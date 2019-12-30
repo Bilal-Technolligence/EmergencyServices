@@ -75,18 +75,8 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                                     userAttr.setId(uid);
                                     userAttr.setAddress(Address);
                                     userAttr.setImageUrl(downloadUri.toString());
-//
-//
-//
-//                                    reference.child(uid).child( "Name" ).setValue(Name);
-//                                    reference.child(uid).child( "Email" ).setValue(Email);
-//                                    reference.child(uid).child( "Contact" ).setValue(Contact);
-//                                    reference.child(uid).child( "Id" ).setValue(uid);
-//                                    reference.child(uid).child( "Age" ).setValue(Age);
-//                                    reference.child(uid).child( "Address" ).setValue(Address);
-//                                    reference.child(uid).child( "ImageUrl" ).setValue(downloadUri.toString());
                                     reference.child(uid).setValue(userAttr);
-                                    activity.startActivity(new Intent(activity, MainActivity.class));
+                                    activity.startActivity(new Intent(activity, VictumHelpActivity.class));
                                     Toast.makeText(activity, "Account Created", Toast.LENGTH_SHORT).show();
                                     activity.finish();
                                     progressDialog.dismiss();

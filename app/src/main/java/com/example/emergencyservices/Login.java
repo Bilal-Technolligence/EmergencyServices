@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import androidx.appcompat.widget.AppCompatTextView;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Login extends AppCompatActivity {
-    Button btnLogin,btnSignup;
+    Button btnLogin;
+    TextView btnSignup;
     EditText email,password;
     ProgressDialog progressDialog;
 
@@ -25,7 +29,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin=(Button) findViewById(R.id.login);
-        btnSignup=(Button) findViewById(R.id.sigup);
+        btnSignup=(TextView) findViewById(R.id.sigup);
         email=(EditText) findViewById(R.id.email);
         password=(EditText) findViewById(R.id.password);
         progressDialog=new ProgressDialog(this);
@@ -48,6 +52,7 @@ public class Login extends AppCompatActivity {
                 }else {
                     progressDialog.show();
                     firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, Login.this, progressDialog);
+                    startActivity(new Intent(Login.this,VictumHelpActivity.class));
 //                    if(check==true) {
 //                        startActivity(new Intent(Login.this, MainActivity.class));
 //                        Toast.makeText(getApplicationContext(), "return true", Toast.LENGTH_SHORT).show();

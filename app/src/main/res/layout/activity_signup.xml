@@ -25,12 +25,12 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Email"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -44,40 +44,57 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Password"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:inputType="textPassword"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sigup"
+        app:cornerRadius="25dp"
         android:padding="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="40dp"
+        android:backgroundTint="@color/colorRed"
         android:layout_marginLeft="40dp"
         android:text="Sign Up">
 
-    </Button>
-    <Button
-        android:layout_width="match_parent"
+    </com.google.android.material.button.MaterialButton>
+<LinearLayout
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Already Have Account? "
+        android:textColor="#696969"
+        android:textSize="20sp"
+     />
+    <TextView
         android:id="@+id/login"
-        android:padding="20dp"
-        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@color/colorRed"
+        android:textSize="25sp"
+        />
+</LinearLayout>
 
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:text="Log in">
 
-    </Button>
 
 </LinearLayout>

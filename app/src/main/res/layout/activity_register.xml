@@ -45,11 +45,11 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Name"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -63,12 +63,12 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Contact#"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/contact"
             android:inputType="number"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -82,12 +82,12 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Age"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/age"
             android:inputType="number"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -101,28 +101,30 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="Enter Address"
-        app:boxStrokeColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary">
+        app:boxStrokeColor="@color/colorRed"
+        android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/address"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/register"
         android:padding="20dp"
+        app:cornerRadius="25dp"
         android:layout_marginTop="15dp"
-        android:background="@color/colorRed"
+        android:backgroundTint="@color/colorRed"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
+
         android:text="Register">
 
-    </Button>
+    </com.google.android.material.button.MaterialButton>
 
 </LinearLayout>

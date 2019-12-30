@@ -36,7 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.nav_home) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, VictumHelpActivity.class));
         } else if (itemId == R.id.nav_frindesList) {
             startActivity(new Intent(this, MainActivity.class));
         } else if (itemId == R.id.nav_familyList) {
