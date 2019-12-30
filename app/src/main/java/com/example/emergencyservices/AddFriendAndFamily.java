@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -22,6 +23,7 @@ public class AddFriendAndFamily extends AppCompatActivity {
     ArrayList<UserAttr> pacakgeAttrs;
     SearchListAdapter adapter;
     ListView recyclerView;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +69,10 @@ public class AddFriendAndFamily extends AppCompatActivity {
         else
         {
 
-            Query query = FirebaseDatabase.getInstance().getReference("Users")
+            databaseReference.child("Users")
                     .orderByChild("name")
                     .startAt(text)
-                    .endAt(text+"\uf8ff");
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    .endAt(text+"\uf8ff").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
