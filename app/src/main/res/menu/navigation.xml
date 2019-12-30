@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id='@+id/nav_home'
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_frindesList"
+        android:title="Friends list"
+        android:icon="@drawable/fl"/>
+    <!--<item-->
+        <!--android:id="@+id/nav_report"-->
+        <!--android:title="View report"-->
+        <!--android:icon="@drawable/ic_filter_none_black_24dp" />-->
+    <item
+        android:id="@+id/nav_familyList"
+        android:icon="@drawable/fml"
+        android:title="Family list"/>
+    <item
+        android:id="@+id/nav_bloodDonation"
+        android:icon="@drawable/bloodlogo"
+        android:title="Blood donate" />
+    <item
+        android:id="@+id/nav_reportCrime"
+        android:icon="@drawable/reportcrime"
+        android:title="Report crime" />
+
+</menu>

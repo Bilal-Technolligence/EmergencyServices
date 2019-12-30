@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VictumHelpActivity">
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnRelatives"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round"
+            android:text="Alert Relatives"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/btnFridends"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Alert Friends"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/btnPolice"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Alert Police"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/btnRescue"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Alert Rescue"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/btnAbulsnce"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Call Abulance"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/btnCrime"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Report Crime"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
+
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation"/>
+
+</RelativeLayout>
