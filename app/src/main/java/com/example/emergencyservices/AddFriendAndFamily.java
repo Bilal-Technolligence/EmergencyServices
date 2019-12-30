@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class AddFriendAndFamily extends AppCompatActivity {
     EditText searchtext;
-    //ArrayList<AddPacakgeAttr> pacakgeAttrs;
+    ArrayList<UserAttr> pacakgeAttrs;
     SearchListAdapter adapter;
     ListView recyclerView;
 
@@ -28,14 +28,14 @@ public class AddFriendAndFamily extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend_and_family);
         searchtext= findViewById(R.id.find);
-        //pacakgeAttrs = new ArrayList<AddPacakgeAttr>();
+        pacakgeAttrs = new ArrayList<UserAttr>();
         recyclerView=findViewById(R.id.searchList);
 
         initTextListener();
     }
 
     private void initTextListener() {
-        //pacakgeAttrs.clear();
+        pacakgeAttrs.clear();
         searchtext.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -57,7 +57,7 @@ public class AddFriendAndFamily extends AppCompatActivity {
     }
 
     private void searchForMatch(String text) {
-        //pacakgeAttrs.clear();
+        pacakgeAttrs.clear();
         updatePostList();
         if(text.length() ==0)
         {
@@ -67,21 +67,21 @@ public class AddFriendAndFamily extends AppCompatActivity {
         else
         {
 
-            Query query = FirebaseDatabase.getInstance().getReference("Packages")
-                    .orderByChild("packageType")
+            Query query = FirebaseDatabase.getInstance().getReference("Users")
+                    .orderByChild("name")
                     .startAt(text)
                     .endAt(text+"\uf8ff");
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
-                    //pacakgeAttrs.clear();
+                    pacakgeAttrs.clear();
                     for(DataSnapshot singleSnapshot :  dataSnapshot.getChildren())
                     {
-//                        if(!pacakgeAttrs.contains(singleSnapshot.getValue(AddPacakgeAttr.class)))
-//                        {
-//                            pacakgeAttrs.add(singleSnapshot.getValue(AddPacakgeAttr.class));
-//                        }
+                        if(!pacakgeAttrs.contains(singleSnapshot.getValue(UserAttr.class)))
+                        {
+                            pacakgeAttrs.add(singleSnapshot.getValue(UserAttr.class));
+                        }
 
                     }
                     try{

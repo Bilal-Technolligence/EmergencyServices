@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class FriendAndFamilyList extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
-    //ArrayList<AddPacakgeAttr> pacakgeAttrs;
+    ArrayList<UserAttr> pacakgeAttrs;
     FriendFamilyAdapter adapter;
     ListView recyclerView;
     @Override
