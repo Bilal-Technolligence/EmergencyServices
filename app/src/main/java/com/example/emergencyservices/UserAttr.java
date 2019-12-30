@@ -8,12 +8,14 @@ public class UserAttr {
     String Age;
     String Address;
     String ImageUrl;
+    String Category;
 
     public UserAttr() {
     }
 
-    public UserAttr(String id, String name, String email, String contact, String age, String address, String imageUrl) {
+    public UserAttr(String id, String name, String email, String contact, String age,String category, String address, String imageUrl) {
         Id = id;
+        Category=category;
         Name = name;
         Email = email;
         Contact = contact;
@@ -28,6 +30,13 @@ public class UserAttr {
 
     public void setId(String id) {
         Id = id;
+    }
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
     }
 
     public String getName() {

@@ -48,7 +48,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
             }
         });
     }
-    public void RegisterUser(final String Email, String Password, final String Contact, final String Name, final String Age, final String Address,final Uri imagePath, final Activity activity, final ProgressDialog progressDialog) {
+    public void RegisterUser(final String Email, String Password, final String Contact, final String Name, final String Age, final String Address, final Uri ImagePath, final String Selection, final Activity activity, final ProgressDialog progressDialog) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -59,7 +59,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
 
                             final DatabaseReference reference=database.getReference("Users");
                             StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/" + FirebaseDatabase.getInstance().getReference().child("Users").push().getKey());
-                            storageReference.putFile(imagePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            storageReference.putFile(ImagePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                     Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
@@ -69,6 +69,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                                     UserAttr userAttr=new UserAttr();
                                     userAttr.setName(Name);
                                     userAttr.setAge(Age);
+                                    userAttr.setCategory(Selection);
                                     userAttr.setContact(Contact);
                                     userAttr.setEmail(Email);
                                     userAttr.setId(uid);

@@ -1,6 +1,7 @@
 package com.example.emergencyservices;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +26,7 @@ public class Register extends AppCompatActivity {
     ImageView profileImage;
     private Uri imagePath;
     int count=0;
+    private String selection;
 
     EditText name,contact,age,address;
 
@@ -31,7 +34,25 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-//        final String currentUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        final String arr[] = getResources().getStringArray(R.array.selection);
+        AlertDialog.Builder dialog = new AlertDialog.Builder( Register.this );
+        dialog.setCancelable( false );
+        dialog.setTitle( "SignUp as : " );
+        dialog.setSingleChoiceItems( R.array.selection, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selection = arr[which];
+                if (selection.equals( "User" )) {
+                dialog.dismiss();
+                }
+                if (selection.equals( "Helper" )) {
+                    dialog.dismiss();
+                }
+
+            }
+        } );
+        dialog.show();
         name=(EditText) findViewById(R.id.name);
         contact=(EditText) findViewById(R.id.contact);
         profileImage = (ImageView) findViewById(R.id.profileImage);
@@ -74,7 +95,7 @@ public class Register extends AppCompatActivity {
                     Snackbar.make(v, "Please Select Image", Snackbar.LENGTH_LONG).show();
                 } else {
                     progressDialog.show();
-                    firbaseAuthenticationClass.RegisterUser(Email, Password,Contact,Name,Age,Address,imagePath,Register.this,progressDialog);
+                    firbaseAuthenticationClass.RegisterUser(Email, Password,Contact,Name,Age,Address,imagePath,selection,Register.this,progressDialog);
 
 
                 }
