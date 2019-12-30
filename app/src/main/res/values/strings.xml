@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Emergency Services</string>
+    <string-array name="selection">
+        <item>User</item>
+        <item>Helper</item>
+    </string-array>
 </resources>
