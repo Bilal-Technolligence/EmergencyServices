@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.security.AccessControlContext;
 import java.util.ArrayList;
 
 public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.ViewHolder> {

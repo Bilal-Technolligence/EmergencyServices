@@ -1,5 +1,6 @@
 package com.example.emergencyservices;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,14 +27,16 @@ import java.util.ArrayList;
 public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapter.ViewHolder> {
     ArrayList<UserAttr> addServiceAttrs;
     private Context context;
-    public FriendFamilyAdapter(ArrayList<UserAttr> addServiceAttrs, Context context){
+    Activity friendfamily;
+    public FriendFamilyAdapter(ArrayList<UserAttr> addServiceAttrs, Context context, FriendAndFamilyList friendAndFamilyList){
         this.context=context;
         this.addServiceAttrs = addServiceAttrs;
+        this.friendfamily = friendAndFamilyList;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.search,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.friendfamilylist,parent,false);
         return new ViewHolder(view);
     }
 
@@ -46,14 +50,14 @@ public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapte
             public void onClick(View v) {
                 final String Id = addServiceAttrs.get(position).getId();
 
-                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(friendfamily);
                 alertDialogBuilder.setMessage("Are you sure to remove relation?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        String uid = "1";//FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        String uid = "12";//FirebaseAuth.getInstance().getCurrentUser().getUid();
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference = firebaseDatabase.getReference();
-                        databaseReference.child("Relations").child("Family").child(uid).child(Id).setValue(null);
+                        databaseReference.child("Relations").child("1").child(uid).setValue(null);
                         dialog.dismiss();
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -77,12 +81,12 @@ public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageButton deleteBtn;
+        ImageView deleteBtn;
         TextView name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            deleteBtn = itemView.findViewById(R.id.imgProfile);
-            name = itemView.findViewById(R.id.txtName);
+            deleteBtn =(ImageView) itemView.findViewById(R.id.imgDelete);
+            name =(TextView) itemView.findViewById(R.id.txtName);
 
 
         }

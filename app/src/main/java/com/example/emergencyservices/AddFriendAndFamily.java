@@ -1,12 +1,15 @@
 package com.example.emergencyservices;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,11 +21,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static java.security.AccessController.getContext;
+
 public class AddFriendAndFamily extends AppCompatActivity {
     EditText searchtext;
     ArrayList<UserAttr> pacakgeAttrs;
     SearchListAdapter adapter;
-    ListView recyclerView;
+    RecyclerView recyclerView;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -32,6 +37,7 @@ public class AddFriendAndFamily extends AppCompatActivity {
         searchtext= findViewById(R.id.find);
         pacakgeAttrs = new ArrayList<UserAttr>();
         recyclerView=findViewById(R.id.searchList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         initTextListener();
     }
@@ -69,10 +75,11 @@ public class AddFriendAndFamily extends AppCompatActivity {
         else
         {
 
-            databaseReference.child("Users")
+            Query query = FirebaseDatabase.getInstance().getReference("Users")
                     .orderByChild("name")
                     .startAt(text)
-                    .endAt(text+"\uf8ff").addListenerForSingleValueEvent(new ValueEventListener() {
+                    .endAt(text+"\uf8ff");
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
@@ -106,5 +113,7 @@ public class AddFriendAndFamily extends AppCompatActivity {
     }
 
     private void updatePostList() {
+        recyclerView.setAdapter(new SearchListAdapter(pacakgeAttrs , getApplicationContext() ));
+
     }
 }

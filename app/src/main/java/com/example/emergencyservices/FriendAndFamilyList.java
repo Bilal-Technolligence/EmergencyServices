@@ -3,9 +3,11 @@ package com.example.emergencyservices;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,25 +22,25 @@ public class FriendAndFamilyList extends AppCompatActivity {
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     ArrayList<UserAttr> pacakgeAttrs;
     FriendFamilyAdapter adapter;
-    ListView recyclerView;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_and_family_list);
-        recyclerView=findViewById(R.id.searchList);
-        //addServiceAttrs = new ArrayList<AddServiceAttr>();
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference.child("Services").orderByChild("rating").addValueEventListener(new ValueEventListener() {
+        recyclerView=findViewById(R.id.ffList);
+        pacakgeAttrs = new ArrayList<UserAttr>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        databaseReference.child("Relations").child("1").orderByChild("name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //addServiceAttrs.clear();
+                pacakgeAttrs.clear();
                 //profiledata.clear();
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-//                    AddServiceAttr p = dataSnapshot1.getValue(AddServiceAttr.class);
-//                    addServiceAttrs.add(p);
+                    UserAttr p = dataSnapshot1.getValue(UserAttr.class);
+                    pacakgeAttrs.add(p);
                 }
 
-                //recyclerView.setAdapter(new ViewServiceAdapter(addServiceAttrs , getApplicationContext()));
+                recyclerView.setAdapter(new FriendFamilyAdapter(pacakgeAttrs , getApplicationContext() , FriendAndFamilyList.this));
 
 
             }

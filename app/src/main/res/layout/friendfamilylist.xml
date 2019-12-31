@@ -27,7 +27,7 @@
         android:textSize="20dp"
         android:layout_marginTop="10dp"/>
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <ImageView
         android:id="@+id/imgDelete"
         android:layout_width="50dp"
         android:layout_height="50dp"

@@ -20,7 +20,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".FriendAndFamilyList"></activity>
+        <activity android:name=".FriendAndFamilyList">
+
+        </activity>
         <activity android:name=".AddFriendAndFamily" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
