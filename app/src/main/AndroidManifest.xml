@@ -4,40 +4,38 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AlertRelativiesActivity"></activity>
         <activity android:name=".AlertFriendsActivity" />
         <activity android:name=".BloodAactivity" />
-        <activity android:name=".VictumHelpActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".VictumHelpActivity" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".Register"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
+        <activity android:name=".Signup"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity android:name=".Login"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+
         </activity>
-        <activity
-            android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".FriendAndFamilyList">
+
+        </activity>
+        <activity android:name=".AddFriendAndFamily" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".Register"
-            android:theme="@style/AppTheme2" />
-        <activity
-            android:name=".Signup"
-            android:theme="@style/AppTheme2" />
-        <activity
-            android:name=".Login"
-            android:theme="@style/AppTheme2" />
+
     </application>
 
 </manifest>
