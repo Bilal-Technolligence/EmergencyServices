@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends BaseActivity {
+public class VictumHelpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-      //  setContentView( R.layout.activity_main );
+       // setContentView( R.layout.activity_victum_help );
     }
 
     @Override
     int getContentViewId() {
-        return R.layout.activity_main;
+         return R.layout.activity_victum_help;
     }
 
     @Override
