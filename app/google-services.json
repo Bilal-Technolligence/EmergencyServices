@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "397063104677-ssusivo91t6g590hthgeu6hqpoejso0q.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.emergencyservices",
-            "certificate_hash": "fd5cb9c2ac581179c03a3690e42f6b93f8187f01"
-          }
-        },
-        {
           "client_id": "397063104677-t43ocb0migr1cf62io24oapnkjm5179i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
