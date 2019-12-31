@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,9 +24,10 @@ import java.util.ArrayList;
 
 import static java.security.AccessController.getContext;
 
-public class AddFriendAndFamily extends AppCompatActivity {
+public class AddFriendAndFamily extends BaseActivity {
     EditText searchtext;
     ArrayList<UserAttr> pacakgeAttrs;
+    String User;
     SearchListAdapter adapter;
     RecyclerView recyclerView;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -33,13 +35,29 @@ public class AddFriendAndFamily extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_friend_and_family);
+     //   setContentView(R.layout.activity_add_friend_and_family);
+        Intent i = getIntent();
+         User = i.getStringExtra("id");
         searchtext= findViewById(R.id.find);
         pacakgeAttrs = new ArrayList<UserAttr>();
         recyclerView=findViewById(R.id.searchList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         initTextListener();
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_add_friend_and_family;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        if(User.equals("Friends"))
+            return R.id.nav_frindesList;
+
+        else
+        return R.id.nav_familyList;
     }
 
     private void initTextListener() {
@@ -113,7 +131,7 @@ public class AddFriendAndFamily extends AppCompatActivity {
     }
 
     private void updatePostList() {
-        recyclerView.setAdapter(new SearchListAdapter(pacakgeAttrs , getApplicationContext() ));
+        recyclerView.setAdapter(new SearchListAdapter(pacakgeAttrs , getApplicationContext() , AddFriendAndFamily.this , User ));
 
     }
 }

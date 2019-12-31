@@ -3,6 +3,7 @@ package com.example.emergencyservices;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,10 +26,19 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep( 4000 );
 
-                    Intent intent = new Intent(getApplicationContext(), Login.class );
-                    startActivity( intent );
-                    finish();
-                    super.run();
+                    SharedPreferences prefs = getSharedPreferences("Log", MODE_PRIVATE);
+                    boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
+                    if (isLoggedIn) {
+                        Intent intent = new Intent(getApplicationContext(), VictumHelpActivity.class );
+                        startActivity( intent );
+                        finish();
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), Login.class );
+                        startActivity( intent );
+                        finish();
+                    }
+
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
