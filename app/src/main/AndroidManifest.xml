@@ -13,6 +13,9 @@
         <activity android:name=".AlertFriendsActivity" />
         <activity android:name=".BloodAactivity" />
         <activity android:name=".VictumHelpActivity" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <activity android:name=".Register"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
