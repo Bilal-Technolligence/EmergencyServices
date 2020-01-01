@@ -37,20 +37,25 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         int itemId = item.getItemId();
         if (itemId == R.id.nav_home) {
             startActivity(new Intent(this, VictumHelpActivity.class));
+            finish();
         } else if (itemId == R.id.nav_frindesList) {
             Intent intent=new Intent(this, FriendAndFamilyList.class);
             intent.putExtra( "id","Friends" );
             startActivity(intent);
+            finish();
         } else if (itemId == R.id.nav_familyList) {
             Intent intent=new Intent(this, FriendAndFamilyList.class);
             intent.putExtra( "id","Family" );
             startActivity(intent);
+            finish();
         }
         else if (itemId == R.id.nav_bloodDonation) {
             startActivity(new Intent(this, BloodAactivity.class));
+            finish();
         }
-        else if (itemId == R.id.nav_reportCrime) {
-            startActivity(new Intent(this, MainActivity.class));
+        else if (itemId == R.id.nav_notifications) {
+            startActivity(new Intent(this, NotificationActivity.class));
+            finish();
         }
 
         return true;

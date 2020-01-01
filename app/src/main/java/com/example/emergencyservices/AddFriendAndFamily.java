@@ -75,7 +75,7 @@ public class AddFriendAndFamily extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                String text = searchtext.getText().toString();
+                String text = searchtext.getText().toString().toUpperCase();
                 searchForMatch(text);
             }
 

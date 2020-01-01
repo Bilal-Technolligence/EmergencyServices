@@ -14,7 +14,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:weightSum="3"
-    android:layout_height="wrap_content"
+    android:layout_height="30dp"
     android:orientation="horizontal"
     android:layout_gravity=""
     >
@@ -22,11 +22,10 @@
     <TextView
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Name"
         android:textColor="#000"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="20dp" />
 
     <ImageView
         android:id="@+id/imgDelete"
@@ -34,8 +33,7 @@
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="2dp"
-        android:background="#fff"
-        android:src="@drawable/ic_delete_black_24dp" />
+        android:src="@drawable/delete" />
 </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

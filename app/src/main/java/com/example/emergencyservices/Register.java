@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Name = name.getText().toString();
+                String Name = name.getText().toString().toUpperCase();
                 String Age = age.getText().toString();
                 String Contact = contact.getText().toString();
                 String Address = address.getText().toString();
