@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.emergencyservices">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:allowBackup="true"
@@ -9,8 +10,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BloodAactivity"></activity>
-        <activity android:name=".VictumHelpActivity"></activity>
+        <service
+            android:name=".MyService"></service>
+
+        <activity android:name=".BloodAactivity" />
+        <activity android:name=".VictumHelpActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -21,13 +25,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Register" 
+        <activity
+            android:name=".Register"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Signup"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Login"
             android:theme="@style/AppTheme2"></activity>
-        <activity android:name=".Signup"
-            android:theme="@style/AppTheme2"/>
-        <activity android:name=".Login"
-            android:theme="@style/AppTheme2">
-        </activity>
     </application>
 
 </manifest>

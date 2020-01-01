@@ -34,7 +34,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            activity.startActivity(new Intent(activity, MainActivity.class));
+                            activity.startActivity(new Intent(activity, BloodAactivity.class));
                            activity.finish();
                             progressDialog.dismiss();
 
