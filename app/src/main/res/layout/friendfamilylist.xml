@@ -8,6 +8,7 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp"
     app:contentPadding="5dp"
+    app:cardBackgroundColor="#fff"
     app:cardUseCompatPadding="true">
 
 <RelativeLayout
@@ -29,8 +30,8 @@
 
     <ImageView
         android:id="@+id/imgDelete"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="2dp"
         android:background="#fff"
