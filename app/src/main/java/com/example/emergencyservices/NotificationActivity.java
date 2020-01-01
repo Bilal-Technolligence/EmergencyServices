@@ -41,7 +41,6 @@ public class NotificationActivity extends BaseActivity {
                    databaseReference.child("Notification").child(uid).child(id).child("status").setValue("Read");
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
