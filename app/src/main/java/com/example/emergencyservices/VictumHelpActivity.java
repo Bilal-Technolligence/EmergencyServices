@@ -20,6 +20,8 @@ public class VictumHelpActivity extends BaseActivity {
         alertRescue = (Button)findViewById( R.id.btnRescue );
         alertAmbulance = (Button)findViewById( R.id.btnAbulsnce );
 
+        Intent i = new Intent(this , MyService.class);
+        startService(i);
 
         alertFriends.setOnClickListener( new View.OnClickListener() {
             @Override
