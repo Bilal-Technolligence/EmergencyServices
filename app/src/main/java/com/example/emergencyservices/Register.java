@@ -39,9 +39,9 @@ public class Register extends AppCompatActivity {
         AlertDialog.Builder dialog = new AlertDialog.Builder( Register.this );
         dialog.setCancelable( false );
         dialog.setTitle( "SignUp as : " );
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton("Go Back", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-//                startActivity(new Intent(Register.this, Signup.class));
+                startActivity(new Intent(Register.this, Signup.class));
                 finish();
             }
         }).setSingleChoiceItems( R.array.selection, -1, new DialogInterface.OnClickListener() {
@@ -50,13 +50,11 @@ public class Register extends AppCompatActivity {
                 selection = arr[which];
                 if (selection.equals( "User" )) {
                 dialog.dismiss();
-                    Signup signup=new Signup();
-                    signup.finish();
+
                 }
                 if (selection.equals( "Helper" )) {
                     dialog.dismiss();
-                    Signup signup=new Signup();
-                    signup.finish();
+
                 }
 
             }
