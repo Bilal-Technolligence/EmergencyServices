@@ -31,7 +31,7 @@
 
 
         <Button
-            android:id="@+id/issue4"
+            android:id="@+id/donateBlood"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -41,7 +41,7 @@
             android:textSize="16sp"></Button>
 
         <Button
-            android:id="@+id/issue5"
+            android:id="@+id/donner"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -51,12 +51,12 @@
             android:textSize="16sp"></Button>
 
         <Button
-            android:id="@+id/issue6"
+            android:id="@+id/needBlood"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_round"
-            android:text="Report Crime"
+            android:text="Need Blood"
             android:textColor="@color/White"
             android:textSize="16sp"></Button>
 

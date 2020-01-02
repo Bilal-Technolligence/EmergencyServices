@@ -1,11 +1,16 @@
 package com.example.emergencyservices;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import android.widget.Button;
@@ -15,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -40,6 +46,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this,Signup.class));
+                finish();
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -54,17 +61,9 @@ public class Login extends AppCompatActivity {
                     progressDialog.show();
                     firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, Login.this, progressDialog);
 
-//                    if(check==true) {
-//                        startActivity(new Intent(Login.this, MainActivity.class));
-//                        Toast.makeText(getApplicationContext(), "return true", Toast.LENGTH_SHORT).show();
-//                    }
-//                    else{
-//                        Toast.makeText(getApplicationContext(), "return false", Toast.LENGTH_SHORT).show();
-//
-//                    }
-
                 }
             }
         });
     }
+
 }

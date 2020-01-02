@@ -1,8 +1,10 @@
 package com.example.emergencyservices;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +15,16 @@ public class VictumHelpActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
        // setContentView( R.layout.activity_victum_help );
         alertFriends = (Button)findViewById( R.id.btnFridends );
         alertRelativies = (Button)findViewById( R.id.btnRelatives );
         alertPolice = (Button)findViewById( R.id.btnPolice );
         alertRescue = (Button)findViewById( R.id.btnRescue );
         alertAmbulance = (Button)findViewById( R.id.btnAbulsnce );
-
+        SharedPreferences.Editor editor = getSharedPreferences("Log", MODE_PRIVATE).edit();
+        editor.putBoolean("isLoggedIn", true );
+        editor.commit();
         Intent i = new Intent(this , MyService.class);
         startService(i);
 

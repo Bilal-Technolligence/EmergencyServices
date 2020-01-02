@@ -33,19 +33,19 @@ public class NotificationActivity extends BaseActivity {
         pacakgeAttrs = new ArrayList<notificationAttr>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference.child("Notification").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                   String id = dataSnapshot1.child("id").getValue().toString();
-                   databaseReference.child("Notification").child(uid).child(id).child("status").setValue("Read");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        databaseReference.child("Notification").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+//                   String id = dataSnapshot1.child("id").getValue().toString();
+//                 //  databaseReference.child("Notification").child(uid).child(id).child("status").setValue("Read");
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         databaseReference.child("Notification").child(uid).addValueEventListener(new ValueEventListener() {

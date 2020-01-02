@@ -1,12 +1,5 @@
 package com.example.emergencyservices;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -20,13 +13,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -155,7 +153,7 @@ public class AlertFriendsActivity extends BaseActivity {
         txtMessage = findViewById(R.id.txtMessage);
         btnRelatives.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 message = txtMessage.getText().toString();
                 databaseReference.child("Relations").child(uid).child("Friends").addValueEventListener(new ValueEventListener() {
                     @Override
@@ -172,6 +170,7 @@ public class AlertFriendsActivity extends BaseActivity {
                             notificationAttr.setName(name);
                             notificationAttr.setStatus("Unread");
                             databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
+                            Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
                         }
                     }
 

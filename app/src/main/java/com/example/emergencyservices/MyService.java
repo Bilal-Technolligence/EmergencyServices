@@ -36,7 +36,7 @@ public class MyService extends Service {
             public void run() {
                 while (0<=1){
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
                         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                         databaseReference.child("Notification").child(uid).addValueEventListener(new ValueEventListener() {
@@ -94,7 +94,14 @@ public class MyService extends Service {
 
     @Override
     public void onDestroy() {
+        Intent restartServiceIntent = new Intent(getApplicationContext(), this.getClass());
+        restartServiceIntent.setPackage(getPackageName());
+    }
 
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        Intent restartServiceIntent = new Intent(getApplicationContext(), this.getClass());
+        restartServiceIntent.setPackage(getPackageName());
     }
     private void generateAlert(String name, String msg) {
         createNotificationChannel();

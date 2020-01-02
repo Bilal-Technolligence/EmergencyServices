@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -150,7 +151,7 @@ public class AlertRelativiesActivity extends BaseActivity {
         txtMessage = findViewById(R.id.txtMessage);
         btnFriends.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 message = txtMessage.getText().toString();
                 databaseReference.child("Relations").child(uid).child("Family").addValueEventListener(new ValueEventListener() {
                     @Override
@@ -159,7 +160,7 @@ public class AlertRelativiesActivity extends BaseActivity {
                             String id = ds.child("id").getValue().toString();
                             final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
                             notificationAttr notificationAttr = new notificationAttr();
-                            notificationAttr.setId(push);
+                            notificationAttr.setId(uid);
                             notificationAttr.setLat(lati);
                             notificationAttr.setLon(loni);
                             notificationAttr.setAddress(address1);
@@ -167,6 +168,7 @@ public class AlertRelativiesActivity extends BaseActivity {
                             notificationAttr.setName(name);
                             notificationAttr.setStatus("Unread");
                             databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
+                            Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
                         }
                     }
 
