@@ -53,9 +53,6 @@ public class Login extends AppCompatActivity {
                 }else {
                     progressDialog.show();
                     firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, Login.this, progressDialog);
-                    SharedPreferences.Editor editor = getSharedPreferences("Log", MODE_PRIVATE).edit();
-                    editor.putBoolean("isLoggedIn", true );
-                    editor.commit();
 
 //                    if(check==true) {
 //                        startActivity(new Intent(Login.this, MainActivity.class));
