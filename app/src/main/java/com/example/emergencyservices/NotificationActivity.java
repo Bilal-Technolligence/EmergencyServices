@@ -58,7 +58,7 @@ public class NotificationActivity extends BaseActivity {
                     pacakgeAttrs.add(p);
                 }
 
-                recyclerView.setAdapter(new NotificationAdapter(pacakgeAttrs , getApplicationContext()));
+                recyclerView.setAdapter(new NotificationAdapter(pacakgeAttrs , NotificationActivity.this));
 
 
             }
