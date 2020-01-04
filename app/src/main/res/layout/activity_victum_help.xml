@@ -75,6 +75,15 @@
             android:text="Report Missing Person"
             android:textColor="@color/White"
             android:textSize="16sp"></Button>
+        <Button
+            android:id="@+id/btnMissingPersonList"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:text="Report Missing Persons List"
+            android:textColor="@color/White"
+            android:textSize="16sp"></Button>
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
