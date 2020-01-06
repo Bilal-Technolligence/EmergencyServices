@@ -4,21 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-      //  setContentView( R.layout.activity_main );
-    }
-
-    @Override
-    int getContentViewId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    int getNavigationMenuItemId() {
-        return R.id.nav_home;
+        setContentView( R.layout.activity_main );
     }
 }

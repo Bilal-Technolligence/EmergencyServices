@@ -19,7 +19,7 @@
         <activity android:name=".MissingPersonsList"></activity>
         <activity
             android:name=".MissingPersonActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/AppTheme0"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

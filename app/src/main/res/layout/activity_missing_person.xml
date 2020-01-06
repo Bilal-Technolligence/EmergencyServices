@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorRed"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:layout_gravity="center">
 
             a<TextView
@@ -30,7 +31,6 @@
                 android:text="Enter Missing Persong Data"
                 android:textAlignment="center"
                 android:textColor="@color/White"
-                android:layout_marginLeft="70dp"
                 android:textSize="22dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -143,6 +143,7 @@
             android:id="@+id/submitData"
             android:padding="20dp"
             app:cornerRadius="25dp"
+            android:gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@color/colorRed"
             android:layout_marginRight="40dp"
