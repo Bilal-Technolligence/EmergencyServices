@@ -60,6 +60,7 @@ public class VictumHelpActivity extends BaseActivity {
         bottomNavigationView.setVisibility(View.GONE);
         SharedPreferences.Editor editor = getSharedPreferences("Log", MODE_PRIVATE).edit();
         editor.putBoolean("isLoggedIn", true );
+        editor.putBoolean("cat", false );
         editor.commit();
         Intent i = new Intent(this , MyService.class);
         startService(i);
