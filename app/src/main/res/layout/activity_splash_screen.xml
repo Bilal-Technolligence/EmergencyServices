@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     android:background="#9b0000"
     tools:context=".SplashScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="165dp"
-        android:paddingTop="20dp"
         android:text="Emergency Services Provider"
         android:textStyle="bold"
         android:textColor="@color/White"
@@ -23,5 +31,7 @@
         android:layout_height="200sp"
         android:layout_centerInParent="true"
         android:src="@drawable/logo"/>
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

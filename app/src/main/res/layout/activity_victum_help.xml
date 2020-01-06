@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".VictumHelpActivity">
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,12 +37,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:gravity="center"
+        android:layout_marginBottom="20dp"
 
         android:orientation="vertical">
 
@@ -110,11 +117,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_round"
-            android:text="Report Missing Persons List"
+            android:text="Missing Persons List"
             android:textColor="@color/White"
+            android:layout_marginBottom="70dp"
             android:textSize="16sp"></Button>
 
     </LinearLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

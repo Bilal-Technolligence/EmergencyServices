@@ -8,9 +8,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MissingPersonActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="70dp"
+
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:background="#fff">
@@ -155,6 +161,7 @@
         </Button>
 
     </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"

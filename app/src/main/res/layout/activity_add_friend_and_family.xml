@@ -7,9 +7,14 @@
     tools:context=".AddFriendAndFamily"
     android:background="#ffffff"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
         android:orientation="vertical">
     <EditText
         android:layout_width="match_parent"
@@ -26,8 +31,11 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:background="@android:color/white"
+
         />
     </LinearLayout>
+
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
@@ -41,4 +49,5 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation"/>
+
 </RelativeLayout>
