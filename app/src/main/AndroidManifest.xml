@@ -16,10 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MissingPersonsList"></activity>
+        <activity
+            android:name=".MissingPersonActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/mapkey" />
-        <activity android:name=".DirectionOnMap"></activity>
+
+        <activity android:name=".DirectionOnMap" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".AlertRelativiesActivity" />
         <activity android:name=".AlertFriendsActivity" />

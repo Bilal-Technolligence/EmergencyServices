@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class VictumHelpActivity extends BaseActivity {
-    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance;
+    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class VictumHelpActivity extends BaseActivity {
         alertPolice = (Button)findViewById( R.id.btnPolice );
         alertRescue = (Button)findViewById( R.id.btnRescue );
         alertAmbulance = (Button)findViewById( R.id.btnAbulsnce );
+        btnMissingPerson = (Button)findViewById( R.id.btnMissingPerson );
+        btnMissingPersonList = (Button)findViewById( R.id.btnMissingPersonList );
         SharedPreferences.Editor editor = getSharedPreferences("Log", MODE_PRIVATE).edit();
         editor.putBoolean("isLoggedIn", true );
         editor.commit();
@@ -36,11 +38,26 @@ public class VictumHelpActivity extends BaseActivity {
             }
         } );
 
+        btnMissingPerson.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VictumHelpActivity.this,MissingPersonActivity.class));
 
+            }
+        } );
         alertRelativies.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(VictumHelpActivity.this,AlertRelativiesActivity.class));
+
+            }
+        } );
+
+
+        btnMissingPersonList.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VictumHelpActivity.this,MissingPersonsList.class));
 
             }
         } );
