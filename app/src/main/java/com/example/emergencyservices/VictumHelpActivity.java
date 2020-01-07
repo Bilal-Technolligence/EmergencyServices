@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class VictumHelpActivity extends BaseActivity {
-    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList;
+    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList,btnlogOut;
     DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     ImageView img;
     TextView txt;
@@ -37,6 +37,7 @@ public class VictumHelpActivity extends BaseActivity {
        // setContentView( R.layout.activity_victum_help );
 
         alertFriends = (Button)findViewById( R.id.btnFridends );
+        btnlogOut = (Button)findViewById( R.id.btnlogOut );
         alertRelativies = (Button)findViewById( R.id.btnRelatives );
         alertPolice = (Button)findViewById( R.id.btnPolice );
         alertRescue = (Button)findViewById( R.id.btnRescue );
@@ -50,6 +51,7 @@ public class VictumHelpActivity extends BaseActivity {
         prg.setVisibility(View.VISIBLE);
         img.setVisibility(View.GONE);
         txt.setVisibility(View.GONE);
+        btnlogOut.setVisibility(View.GONE);
         alertFriends.setVisibility(View.GONE);
         alertRelativies.setVisibility(View.GONE);
         alertPolice.setVisibility(View.GONE);
@@ -74,6 +76,7 @@ public class VictumHelpActivity extends BaseActivity {
 //                    finish();
                     img.setVisibility(View.VISIBLE);
                     txt.setVisibility(View.VISIBLE);
+                    btnlogOut.setVisibility(View.VISIBLE);
                     alertFriends.setVisibility(View.GONE);
                     alertRelativies.setVisibility(View.GONE);
                     alertPolice.setVisibility(View.GONE);
@@ -92,6 +95,7 @@ public class VictumHelpActivity extends BaseActivity {
                     alertAmbulance.setVisibility(View.VISIBLE);
                     btnMissingPerson.setVisibility(View.VISIBLE);
                     btnMissingPersonList.setVisibility(View.VISIBLE);
+                    btnlogOut.setVisibility(View.VISIBLE);
                     bottomNavigationView.setVisibility(View.VISIBLE);
                     prg.setVisibility(View.GONE);
                 }
@@ -133,6 +137,21 @@ public class VictumHelpActivity extends BaseActivity {
 
             }
         } );
+
+        btnlogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences settings = getSharedPreferences("Log", MODE_PRIVATE);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.remove("isLoggedIn");
+                editor.remove("cat");
+                editor.commit();
+
+                Intent intent = new Intent(VictumHelpActivity.this , Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

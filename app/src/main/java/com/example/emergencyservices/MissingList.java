@@ -22,15 +22,13 @@ import java.util.ArrayList;
 
 public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
     ArrayList<MissingPersonAttributes> missingPersonAttributes;
-    private Context context;
     Activity friendfamily;
-    String user;
 
-    public MissingList(ArrayList<MissingPersonAttributes> missingPersonAttributes, Context context, MissingPersonsList friendAndFamilyList, String user) {
-        this.context = context;
+    public MissingList(ArrayList<MissingPersonAttributes> missingPersonAttributes, MissingPersonsList friendAndFamilyList) {
+
         this.missingPersonAttributes = missingPersonAttributes;
         this.friendfamily = friendAndFamilyList;
-        this.user = user;
+
     }
 
     @NonNull
@@ -63,7 +61,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.profileImage);
+            img = (ImageView) itemView.findViewById(R.id.imgProfile);
             name = (TextView) itemView.findViewById(R.id.txtName);
             fName = (TextView) itemView.findViewById(R.id.txtfName);
             age = (TextView) itemView.findViewById(R.id.txtage);
