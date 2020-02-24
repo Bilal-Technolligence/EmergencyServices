@@ -76,6 +76,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                                     userAttr.setId(uid);
                                     userAttr.setAddress(Address);
                                     userAttr.setImageUrl(downloadUri.toString());
+                                    userAttr.setStatus( 0 );
                                     reference.child(uid).setValue(userAttr);
                                     activity.startActivity(new Intent(activity, VictumHelpActivity.class));
                                     Toast.makeText(activity, "Account Created", Toast.LENGTH_SHORT).show();
