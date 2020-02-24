@@ -2,6 +2,7 @@ package com.example.emergencyservices;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,9 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
     ArrayList<notificationAttr> addServiceAttrs;
-    private Context context;
+    NotificationActivity context;
 
-    public NotificationAdapter(ArrayList<notificationAttr> addServiceAttrs, Context context) {
+    public NotificationAdapter(ArrayList<notificationAttr> addServiceAttrs, NotificationActivity context) {
         this.context = context;
         this.addServiceAttrs = addServiceAttrs;
     }
@@ -30,11 +31,24 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, final int position) {
         holder.desc.setText(addServiceAttrs.get(position).getMessage());
         holder.datetime.setText(addServiceAttrs.get(position).getAddress());
         holder.title.setText(addServiceAttrs.get(position).getName());
-        final String id = addServiceAttrs.get(position).getId();
+
+        holder.itemView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String latitude = addServiceAttrs.get(position).getLat();
+                final String longitude = addServiceAttrs.get(position).getLon();
+
+                Intent intent = new Intent( context, DirectionOnMap.class );
+                intent.putExtra("Latitude", latitude);
+                intent.putExtra("Longitude", longitude);
+                context.startActivity( intent );
+
+            }
+        } );
 
     }
 

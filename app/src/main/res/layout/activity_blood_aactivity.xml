@@ -6,13 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".BloodAactivity">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/upper_layout"
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/blooddon"
         android:gravity="center"
         android:orientation="horizontal"></LinearLayout>
@@ -24,6 +30,8 @@
         android:layout_marginTop="35dp"
         android:gravity="center"
         android:layout_below="@id/upper_layout"
+        android:layout_marginBottom="70dp"
+
 
         android:orientation="vertical">
 
@@ -61,6 +69,8 @@
             android:textSize="16sp"></Button>
 
     </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

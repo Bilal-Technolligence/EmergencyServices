@@ -8,6 +8,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,5 +136,7 @@
         android:text="Register">
 
     </com.google.android.material.button.MaterialButton>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

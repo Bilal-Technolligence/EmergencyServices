@@ -26,14 +26,6 @@ public class UserAttr {
         Status = status;
     }
 
-    public int getStatus() {
-        return Status;
-    }
-
-    public void setStatus(int status) {
-        Status = status;
-    }
-
     public String getId() {
         return Id;
     }
@@ -43,6 +35,14 @@ public class UserAttr {
     }
     public String getCategory() {
         return Category;
+    }
+
+    public int getStatus() {
+        return Status;
+    }
+
+    public void setStatus(int status) {
+        Status = status;
     }
 
     public void setCategory(String category) {
