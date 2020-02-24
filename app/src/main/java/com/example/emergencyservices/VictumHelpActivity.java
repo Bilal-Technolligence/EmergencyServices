@@ -66,6 +66,8 @@ public class VictumHelpActivity extends BaseActivity {
         editor.commit();
         Intent i = new Intent(this , MyService.class);
         startService(i);
+        Intent myLocation = new Intent(this , MyLocation.class);
+        startService(myLocation);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         dref.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
