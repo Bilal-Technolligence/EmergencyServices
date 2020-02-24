@@ -18,43 +18,170 @@
             android:gravity="center"
             android:layout_marginBottom="70dp"
             android:orientation="vertical">
-    <Button
-        android:id="@+id/btnPolicee"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_round"
-        android:text="Police"
-        android:textColor="@color/White"
-        android:textSize="16sp"></Button>
 
-    <Button
-        android:id="@+id/btnRescuee"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_round"
-        android:text="Rescue"
-        android:textColor="@color/White"
-        android:textSize="16sp"></Button>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnPolicee"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="50dp">
 
-    <Button
-        android:id="@+id/btnAmbulance"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_round"
-        android:text="Ambulance"
-        android:textColor="@color/White"
-        android:textSize="16sp"></Button>
-            <Button
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+
+                    android:text="Police"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnRescuee"
+                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                app:cardElevation="50dp"
+                app:cardCornerRadius="10dp"
+                android:padding="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                app:cardBackgroundColor="#ffffff">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Rescue"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnAmbulance"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="50dp">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+
+                    android:text="Ambulance"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/btnLogout"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_round"
-                android:text="Logout"
-                android:textColor="@color/White"
-                android:textSize="16sp"></Button>
+                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                app:cardElevation="50dp"
+                app:cardCornerRadius="10dp"
+                android:padding="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                app:cardBackgroundColor="#ffffff">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Logout"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
+
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

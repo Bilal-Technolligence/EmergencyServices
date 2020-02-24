@@ -3,6 +3,7 @@ package com.example.emergencyservices;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class VictumHelpActivity extends BaseActivity {
-    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList,btnlogOut;
+    CardView alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList,btnlogOut;
     DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     ImageView img;
     TextView txt;
@@ -36,14 +37,14 @@ public class VictumHelpActivity extends BaseActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
        // setContentView( R.layout.activity_victum_help );
 
-        alertFriends = (Button)findViewById( R.id.btnFridends );
-        btnlogOut = (Button)findViewById( R.id.btnlogOut );
-        alertRelativies = (Button)findViewById( R.id.btnRelatives );
-        alertPolice = (Button)findViewById( R.id.btnPolice );
-        alertRescue = (Button)findViewById( R.id.btnRescue );
-        alertAmbulance = (Button)findViewById( R.id.btnAbulsnce );
-        btnMissingPerson = (Button)findViewById( R.id.btnMissingPerson );
-        btnMissingPersonList = (Button)findViewById( R.id.btnMissingPersonList );
+        alertFriends = (CardView) findViewById( R.id.btnFridends );
+        btnlogOut = (CardView)findViewById( R.id.btnlogOut );
+        alertRelativies = (CardView)findViewById( R.id.btnRelatives );
+        alertPolice = (CardView)findViewById( R.id.btnPolice );
+        alertRescue = (CardView)findViewById( R.id.btnRescue );
+        alertAmbulance = (CardView)findViewById( R.id.btnAbulsnce );
+        btnMissingPerson = (CardView)findViewById( R.id.btnMissingPerson );
+        btnMissingPersonList = (CardView)findViewById( R.id.btnMissingPersonList );
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
         img = (ImageView) findViewById( R.id.imgN );
         txt = (TextView) findViewById( R.id.txt );
