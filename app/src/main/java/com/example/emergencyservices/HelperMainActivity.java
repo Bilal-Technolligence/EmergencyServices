@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +29,12 @@ public class HelperMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rescue);
         recyclerView=findViewById(R.id.nList);
         pacakgeAttrs = new ArrayList<notificationAttr>();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final String id = getIntent().getStringExtra("id");
+        Intent i=new Intent(this,HelperService.class);
+        i.putExtra("id",id);
+        startService(i);
         databaseReference.child("Notification").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

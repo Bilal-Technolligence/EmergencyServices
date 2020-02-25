@@ -52,6 +52,7 @@
 
         <activity android:name=".HelperMainActivity"/>
         <service android:name=".MyService" />
+        <service android:name=".HelperService" />
         <activity android:name=".HelperLogin"
             android:theme="@style/AppTheme2"/>
 

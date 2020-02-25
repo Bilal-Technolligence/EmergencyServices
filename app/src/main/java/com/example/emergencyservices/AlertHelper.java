@@ -46,6 +46,7 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     final DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
+                    dref.child("Notification").child(helper).child(push).child("status").setValue("Unread");
                     locationManager = (LocationManager) getSystemService( LOCATION_SERVICE );
                     locationListener = new LocationListener() {
                         @RequiresApi(api = Build.VERSION_CODES.P)
