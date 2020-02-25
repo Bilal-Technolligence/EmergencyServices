@@ -16,7 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HelperActivity"></activity>
+        <activity android:name=".BloodList"></activity>
+        <activity android:name=".DonateBlood">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".HelperActivity" />
         <activity android:name=".MissingPersonsList" />
         <activity
             android:name=".MissingPersonActivity"
@@ -37,13 +45,7 @@
         <activity android:name=".VictumHelpActivity" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".Register"
             android:theme="@style/AppTheme2" />
