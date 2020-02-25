@@ -68,21 +68,37 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/sigup"
-        app:cornerRadius="25dp"
-        android:padding="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorRed"
-        android:layout_marginLeft="40dp"
-        android:text="Sign Up">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sigup"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                app:cardElevation="60dp"
+                app:cardCornerRadius="10dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="38dp"
+                android:layout_marginBottom="0dp"
+                app:cardBackgroundColor="#d50000">
 
-    </com.google.android.material.button.MaterialButton>
-<LinearLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Sign Up"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="23dp" />
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
     android:layout_marginTop="10dp"
     android:orientation="horizontal"
     android:gravity="center_horizontal"

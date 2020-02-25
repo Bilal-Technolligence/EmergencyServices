@@ -142,23 +142,37 @@
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.cardview.widget.CardView
             android:id="@+id/submitData"
-            android:padding="20dp"
-            app:cornerRadius="25dp"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@color/colorRed"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:textColor="@color/White"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            app:cardElevation="60dp"
+            app:cardCornerRadius="10dp"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="39dp"
+            android:layout_marginRight="39dp"
+            android:layout_marginBottom="0dp"
+            app:cardBackgroundColor="#d50000">
 
-            android:text="Sumbit Data">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="1dp"
+                android:gravity="center"
+                android:text="Submit"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="23dp" />
 
-        </Button>
+
+
+
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
     </ScrollView>

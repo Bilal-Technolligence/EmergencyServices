@@ -15,13 +15,15 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 public class Register extends AppCompatActivity {
-    Button btnRegister;
+    CardView btnRegister;
     ProgressDialog progressDialog;
     ImageView profileImage;
     private Uri imagePath;
@@ -64,7 +66,7 @@ public class Register extends AppCompatActivity {
         contact=(EditText) findViewById(R.id.contact);
         profileImage = (ImageView) findViewById(R.id.profileImage);
         age=(EditText) findViewById(R.id.age);
-        btnRegister=(Button) findViewById(R.id.register);
+        btnRegister=(CardView) findViewById(R.id.register);
         address=(EditText) findViewById(R.id.address);
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Registering..... ");

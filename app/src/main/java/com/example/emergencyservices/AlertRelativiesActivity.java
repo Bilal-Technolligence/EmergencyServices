@@ -3,6 +3,7 @@ package com.example.emergencyservices;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,7 +49,7 @@ public class AlertRelativiesActivity extends BaseActivity {
     ArrayList<UserAttr> pacakgeAttrs;
     FriendFamilyAdapter adapter;
     RecyclerView recyclerView;
-    Button btnFriends;
+    CardView btnFriends;
     EditText txtMessage;
     String message ,address1 ,name;
 

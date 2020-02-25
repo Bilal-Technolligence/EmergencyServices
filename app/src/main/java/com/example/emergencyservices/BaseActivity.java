@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,13 +51,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         //drawer navbar item click
         drawerNavigationView = (NavigationView) findViewById(R.id.drawerNavigationView);
         drawerNavigationView.setNavigationItemSelectedListener(this);
-      String  userName ="AASHIR";
+
         //header click navbar
         View headerview = drawerNavigationView.getHeaderView(0);
         imageView = (ImageView) headerview.findViewById(R.id.profile_image);
         textView=(TextView) headerview.findViewById(R.id.name);
 
-        final String uid=userName;
+        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         databaseReference.child( "Users" ).child( uid ).addValueEventListener( new ValueEventListener() {
             @Override
