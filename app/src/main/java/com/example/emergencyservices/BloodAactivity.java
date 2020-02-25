@@ -34,7 +34,6 @@ public class BloodAactivity extends BaseActivity {
         super.onCreate( savedInstanceState );
       //  setContentView( R.layout.activity_blood_aactivity );
         donner = findViewById(R.id.donner);
-        needBlood = findViewById(R.id.needBlood);
         donateBlood = findViewById(R.id.donateBlood);
 
 
@@ -49,13 +48,25 @@ public class BloodAactivity extends BaseActivity {
 
             }
         });
-
-        needBlood.setOnClickListener(new View.OnClickListener() {
+        donner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogBox();
+
             }
         });
+        donateBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+//        needBlood.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialogBox();
+//            }
+//        });
     }
 
     private void dialogBox() {

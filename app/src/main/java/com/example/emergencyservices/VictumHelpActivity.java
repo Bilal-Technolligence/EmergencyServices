@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class VictumHelpActivity extends BaseActivity {
-    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList;
+    Button alertFriends,alertRelativies,alertPolice,alertRescue,alertAmbulance,btnMissingPerson,btnMissingPersonList , btnviewlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

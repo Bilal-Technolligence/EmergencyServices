@@ -26,7 +26,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
     Activity friendfamily;
     String user;
 
-    public MissingList(ArrayList<MissingPersonAttributes> missingPersonAttributes, Context context, MissingPersonsList friendAndFamilyList, String user) {
+    public MissingList(ArrayList<MissingPersonAttributes> missingPersonAttributes, MissingPersonsList friendAndFamilyList) {
         this.context = context;
         this.missingPersonAttributes = missingPersonAttributes;
         this.friendfamily = friendAndFamilyList;
@@ -63,7 +63,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.profileImage);
+            img = (ImageView) itemView.findViewById(R.id.imgProfile);
             name = (TextView) itemView.findViewById(R.id.txtName);
             fName = (TextView) itemView.findViewById(R.id.txtfName);
             age = (TextView) itemView.findViewById(R.id.txtage);

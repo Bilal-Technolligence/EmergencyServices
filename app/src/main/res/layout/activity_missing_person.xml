@@ -149,7 +149,7 @@
             android:layout_marginLeft="40dp"
             android:textColor="@color/White"
 
-            android:text="Sumbit Data">
+            android:text="Submit Data">
 
         </Button>
 

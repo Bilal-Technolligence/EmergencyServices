@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MissingPersonsList"></activity>
+        <activity android:name=".MissingPersonsList" />
         <activity
             android:name=".MissingPersonActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
