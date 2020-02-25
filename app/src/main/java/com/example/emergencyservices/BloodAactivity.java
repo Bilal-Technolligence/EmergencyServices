@@ -49,6 +49,20 @@ public class BloodAactivity extends BaseActivity {
 
             }
         });
+        donner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent( BloodAactivity.this,DonateBlood.class ) );
+
+            }
+        });
+        donateBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent( BloodAactivity.this,BloodList.class ) );
+
+            }
+        });
     }
 
     private void dialogBox() {

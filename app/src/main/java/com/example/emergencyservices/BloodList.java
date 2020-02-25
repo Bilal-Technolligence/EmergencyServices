@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,33 +14,34 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class MissingPersonsList extends BaseActivity {
+public class BloodList extends BaseActivity {
+    RecyclerView bloodlist;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
-    ArrayList<MissingPersonAttributes> pacakgeAttrs;
-    MissingPersonsList adapter;
-    RecyclerView recyclerView;
+    ArrayList<BloodAttr> bloodAttrs;
+    BloodListAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_missing_persons_list);
-        recyclerView=findViewById(R.id.ffList);
-        pacakgeAttrs = new ArrayList<MissingPersonAttributes>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference.child("MissingPerson").addValueEventListener(new ValueEventListener() {
+        setContentView(R.layout.activity_blood_list);
+
+        bloodlist = findViewById(R.id.bloodList);
+        bloodlist.setLayoutManager(new LinearLayoutManager(this));
+        bloodAttrs = new ArrayList<BloodAttr>();
+        databaseReference.child("BloodNeeder").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                pacakgeAttrs.clear();
+                bloodAttrs.clear();
                 //profiledata.clear();
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    MissingPersonAttributes p = dataSnapshot1.getValue(MissingPersonAttributes.class);
-                    pacakgeAttrs.add(p);
+                    BloodAttr p = dataSnapshot1.getValue(BloodAttr.class);
+                    bloodAttrs.add(p);
                 }
-
-                recyclerView.setAdapter(new MissingList(pacakgeAttrs ,MissingPersonsList.this ));
-
-
+                Collections.reverse(bloodAttrs);
+                bloodlist.setAdapter(new BloodListAdapter(bloodAttrs , getApplicationContext()));
             }
 
             @Override
@@ -49,17 +49,15 @@ public class MissingPersonsList extends BaseActivity {
 
             }
         });
-
-
     }
 
     @Override
     int getContentViewId() {
-        return R.layout.activity_missing_persons_list;
+        return R.layout.activity_blood_aactivity;
     }
 
     @Override
     int getNavigationMenuItemId() {
-        return R.id.nav_home;
+        return R.id.nav_bloodDonation;
     }
 }

@@ -2,6 +2,7 @@ package com.example.emergencyservices;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
@@ -172,6 +173,10 @@ public class AlertFriendsActivity extends BaseActivity {
                             notificationAttr.setStatus("Unread");
                             databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
                             Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
+                            Intent i = new Intent(AlertFriendsActivity.this , MyLocation.class);
+                            i.putExtra("id" , id);
+                            i.putExtra("uid" , uid);
+                            startService(i);
                         }
                     }
 

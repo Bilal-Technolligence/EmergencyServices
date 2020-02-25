@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".BloodAactivity">
+    tools:context=".DonateBlood"
+    android:orientation="vertical">
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawarLayout"
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/donateBlood"
+
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
@@ -51,23 +51,23 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="60dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="110dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="Blood Donation"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/spinnerBlood"
                         android:textColor="#ffffff"
                         android:textSize="23dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:entries="@array/blood"/>
 
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/donner"
+                    android:id="@+id/confirm"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
@@ -83,11 +83,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="110dp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center"
-                        android:text="Become a Donner"
+                        android:text="Confirm"
                         android:textColor="#ffffff"
                         android:textSize="23dp"
                         android:textStyle="bold" />
@@ -98,7 +98,6 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawerNavigationView"
@@ -112,7 +111,7 @@
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
- <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,6 +124,4 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation"/>
-
-
 </RelativeLayout>

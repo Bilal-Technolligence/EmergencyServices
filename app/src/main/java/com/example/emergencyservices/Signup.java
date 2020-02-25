@@ -1,6 +1,7 @@
 package com.example.emergencyservices;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Signup extends AppCompatActivity {
-    Button btnSignup;
+    CardView btnSignup;
     TextView btnLogin;
     EditText email,password;
     boolean check;
@@ -22,7 +23,7 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         btnLogin=(TextView) findViewById(R.id.login);
-        btnSignup=(Button) findViewById(R.id.sigup);
+        btnSignup=(CardView) findViewById(R.id.sigup);
         email=(EditText) findViewById(R.id.email);
         password=(EditText) findViewById(R.id.password);
         btnSignup.setOnClickListener(new View.OnClickListener() {

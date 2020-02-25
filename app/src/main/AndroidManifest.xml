@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HelperActivity"></activity>
+        <activity android:name=".BloodList"></activity>
+        <activity android:name=".DonateBlood">
+
+        </activity>
+        <activity android:name=".HelperActivity" />
         <activity android:name=".MissingPersonsList" />
         <activity
             android:name=".MissingPersonActivity"
@@ -28,7 +32,9 @@
 
         <activity android:name=".DirectionOnMap" />
         <activity android:name=".NotificationActivity" />
-        <activity android:name=".AlertRelativiesActivity" />
+        <activity android:name=".AlertRelativiesActivity" >
+
+        </activity>
         <activity android:name=".AlertFriendsActivity" />
 
         <service android:name=".MyService" />

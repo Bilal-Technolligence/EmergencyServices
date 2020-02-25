@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -106,6 +107,8 @@ public class AddFriendAndFamily extends BaseActivity {
                     {
                         if(!pacakgeAttrs.contains(singleSnapshot.getValue(UserAttr.class)))
                         {
+                            String user = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+                            if(!user.equals(singleSnapshot.child("id").getValue().toString()))
                             pacakgeAttrs.add(singleSnapshot.getValue(UserAttr.class));
                         }
 
