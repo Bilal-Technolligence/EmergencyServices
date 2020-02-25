@@ -30,7 +30,7 @@ public class DonateBlood extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donate_blood);
+       // setContentView(R.layout.activity_donate_blood);
 
         button = findViewById(R.id.confirm);
         blood = findViewById(R.id.spinnerBlood);

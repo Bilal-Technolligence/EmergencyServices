@@ -26,7 +26,7 @@ public class BloodList extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blood_list);
+    //    setContentView(R.layout.activity_blood_list);
 
         bloodlist = findViewById(R.id.bloodList);
         bloodlist.setLayoutManager(new LinearLayoutManager(this));
