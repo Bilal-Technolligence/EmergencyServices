@@ -38,10 +38,18 @@ public class SplashScreen extends AppCompatActivity {
 
                     SharedPreferences prefs = getSharedPreferences("Log", MODE_PRIVATE);
                     boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
+                    boolean cat = prefs.getBoolean("cat", false);
                     if (isLoggedIn) {
-                        Intent intent = new Intent(getApplicationContext(), VictumHelpActivity.class );
-                        startActivity( intent );
-                        finish();
+                        if(cat){
+                            Intent intent = new Intent(getApplicationContext(), HelperActivity.class );
+                            startActivity( intent );
+                            finish();
+                        }
+                        else{
+                            Intent intent = new Intent(getApplicationContext(), VictumHelpActivity.class );
+                            startActivity( intent );
+                            finish();
+                        }
                     } else {
                         Intent intent = new Intent(getApplicationContext(), Login.class );
                         startActivity( intent );

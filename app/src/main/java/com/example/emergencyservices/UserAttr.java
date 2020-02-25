@@ -9,19 +9,21 @@ public class UserAttr {
     String Address;
     String ImageUrl;
     String Category;
+    int Status;
 
     public UserAttr() {
     }
 
-    public UserAttr(String id, String name, String email, String contact, String age,String category, String address, String imageUrl) {
+    public UserAttr(String id, String name, String email, String contact, String age, String address, String imageUrl, String category, int status) {
         Id = id;
-        Category=category;
         Name = name;
         Email = email;
         Contact = contact;
         Age = age;
         Address = address;
         ImageUrl = imageUrl;
+        Category = category;
+        Status = status;
     }
 
     public String getId() {
@@ -33,6 +35,14 @@ public class UserAttr {
     }
     public String getCategory() {
         return Category;
+    }
+
+    public int getStatus() {
+        return Status;
+    }
+
+    public void setStatus(int status) {
+        Status = status;
     }
 
     public void setCategory(String category) {

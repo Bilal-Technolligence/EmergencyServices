@@ -3,6 +3,7 @@ package com.example.emergencyservices;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class BloodAactivity extends BaseActivity {
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    Button donner,needBlood,donateBlood;
+    CardView donner,donateBlood;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     String name;
@@ -48,25 +49,6 @@ public class BloodAactivity extends BaseActivity {
 
             }
         });
-        donner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        donateBlood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-//        needBlood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialogBox();
-//            }
-//        });
     }
 
     private void dialogBox() {

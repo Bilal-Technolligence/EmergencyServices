@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".NotificationActivity"
     android:background="#fff">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/nList"
@@ -16,6 +25,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="14dp" />
+    </LinearLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

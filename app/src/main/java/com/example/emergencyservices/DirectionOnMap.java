@@ -32,6 +32,7 @@ public class DirectionOnMap extends FragmentActivity implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        //
         Intent intent = getIntent();
         latitude = intent.getStringExtra("Latitude");
         longitude = intent.getStringExtra("Longitude");
