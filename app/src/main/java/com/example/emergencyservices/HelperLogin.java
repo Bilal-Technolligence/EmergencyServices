@@ -23,8 +23,19 @@ public class HelperLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(helperId.getText().toString().equals("rescue") && helperPassword.getText().toString().equals("1122")){
-                    startActivity(new Intent(getApplicationContext(),RescueActivity.class));
-                }else if(helperId.getText().toString().equals("police") && helperPassword.getText().toString().equals("15")){}
+                    Intent i = new Intent(getApplicationContext(), HelperMainActivity.class);
+                    i.putExtra("id" , "rescue");
+                    startActivity(i);
+                }else if(helperId.getText().toString().equals("police") && helperPassword.getText().toString().equals("15")){
+                    Intent i = new Intent(getApplicationContext(), HelperMainActivity.class);
+                    i.putExtra("id" , "police");
+                    startActivity(i);
+                }
+                else if(helperId.getText().toString().equals("ambulance") && helperPassword.getText().toString().equals("115")){
+                    Intent i = new Intent(getApplicationContext(), HelperMainActivity.class);
+                    i.putExtra("id" , "ambulance");
+                    startActivity(i);
+                }
             }
         });
     }

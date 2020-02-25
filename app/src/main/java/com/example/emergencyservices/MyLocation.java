@@ -40,7 +40,6 @@ public class MyLocation extends Service {
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        id = intent.getStringExtra("id");
         uid = intent.getStringExtra("uid");
         try {
             final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -50,8 +49,8 @@ public class MyLocation extends Service {
                 @RequiresApi(api = Build.VERSION_CODES.P)
                 @Override
                 public void onLocationChanged(Location location) {
-                    dref.child("Notification").child(id).child(uid).child("lon").setValue(location.getLongitude());
-                    dref.child("Notification").child(id).child(uid).child("lat").setValue(location.getLatitude());
+                    dref.child("Notification").child("police").child(uid).child("lon").setValue(location.getLongitude());
+                    dref.child("Notification").child("police").child(uid).child("lat").setValue(location.getLatitude());
                     // Toast.makeText(getApplicationContext(), "location change", Toast.LENGTH_SHORT).show();
 
                 }

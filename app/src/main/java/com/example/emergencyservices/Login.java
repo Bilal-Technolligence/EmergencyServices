@@ -25,7 +25,7 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Login extends AppCompatActivity {
-    Button btnLogin;
+    Button btnLogin , helperLogin;
     TextView btnSignup;
     EditText email,password;
     ProgressDialog progressDialog;
@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin=(Button) findViewById(R.id.login);
+        helperLogin=(Button) findViewById(R.id.loginHelper);
         btnSignup=(TextView) findViewById(R.id.sigup);
         email=(EditText) findViewById(R.id.email);
         password=(EditText) findViewById(R.id.password);
@@ -62,6 +63,12 @@ public class Login extends AppCompatActivity {
                     firbaseAuthenticationClass.LoginUser(EMAIL,PASSWORD, Login.this, progressDialog);
 
                 }
+            }
+        });
+        helperLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext() , HelperLogin.class));
             }
         });
     }
