@@ -1,6 +1,7 @@
 package com.example.emergencyservices;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
     ArrayList<notificationAttr> addServiceAttrs;
-    NotificationActivity context;
+    Activity context;
 
-    public NotificationAdapter(ArrayList<notificationAttr> addServiceAttrs, NotificationActivity context) {
+    public NotificationAdapter(ArrayList<notificationAttr> addServiceAttrs, Activity context) {
         this.context = context;
         this.addServiceAttrs = addServiceAttrs;
     }

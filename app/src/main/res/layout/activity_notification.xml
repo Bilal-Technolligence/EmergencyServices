@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context=".NotificationActivity"
     android:background="#fff">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,6 +31,18 @@
         android:layout_marginBottom="14dp" />
     </LinearLayout>
     </ScrollView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/drawerNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#fff"
+        app:headerLayout="@layout/header"
+        app:itemTextColor="#6c6c6c"
+        app:menu="@menu/drawar_menu"></com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

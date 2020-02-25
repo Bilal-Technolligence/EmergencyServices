@@ -18,11 +18,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BloodList"></activity>
         <activity android:name=".DonateBlood">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".HelperActivity" />
         <activity android:name=".MissingPersonsList" />
@@ -36,7 +32,13 @@
 
         <activity android:name=".DirectionOnMap" />
         <activity android:name=".NotificationActivity" />
-        <activity android:name=".AlertRelativiesActivity" />
+        <activity android:name=".AlertRelativiesActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AlertFriendsActivity" />
 
         <service android:name=".MyService" />
