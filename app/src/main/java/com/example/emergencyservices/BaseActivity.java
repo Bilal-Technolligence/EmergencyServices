@@ -1,6 +1,7 @@
 package com.example.emergencyservices;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -120,13 +121,19 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             startActivity(new Intent(this, NotificationActivity.class));
             finish();
         } else if (itemId == R.id.profile) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            Intent in = new Intent(this,Register.class);
+           // in.putExtra( "name", String.valueOf( userName ) );
+            startActivity(in);
             finish();
         } else if (itemId == R.id.logout) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            SharedPreferences settings = getSharedPreferences("Log", MODE_PRIVATE);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.remove("isLoggedIn");
+                editor.remove("cat");
+                editor.commit();
+                Intent intent = new Intent(BaseActivity.this , Login.class);
+                startActivity(intent);
+                finish();
         }
 
         return true;
