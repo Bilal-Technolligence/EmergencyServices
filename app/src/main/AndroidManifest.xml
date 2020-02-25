@@ -16,12 +16,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RescueActivity"></activity>
+        <activity android:name=".HelperLogin"
+            android:theme="@style/AppTheme2" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <service
             android:name=".MyLocation"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".HelperActivity" />
+        <activity
+            android:name=".HelperActivity">
+
+        </activity>
         <activity android:name=".MissingPersonsList" />
         <activity
             android:name=".MissingPersonActivity"
@@ -43,11 +56,7 @@
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Register"

@@ -62,8 +62,8 @@ public class MyLocation extends Service {
                 @Override
                 public void onProviderDisabled(String provider) {
                   //  Toast.makeText(getApplicationContext(), "provider disable", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent( Settings.ACTION_LOCATION_SOURCE_SETTINGS );
-                    startActivity( i );
+//                    Intent i = new Intent( Settings.ACTION_LOCATION_SOURCE_SETTINGS );
+//                    startActivity( i );
 
                 }
             };
