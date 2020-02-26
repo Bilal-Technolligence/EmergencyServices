@@ -37,61 +37,99 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/donateBlood"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="0dp"
                     android:padding="10dp"
-                    app:cardBackgroundColor="#d50000"
+                    app:cardBackgroundColor="#ffffff"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="60dp">
+                    app:cardElevation="50dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="110dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:text="Blood Donation"
-                        android:textColor="#ffffff"
-                        android:textSize="23dp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/blooddonner" />
 
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingTop="15dp"
+                            android:text="Blood Donation"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_chevron_right_black_24dp" />
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/donner"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="0dp"
                     android:padding="10dp"
-                    app:cardBackgroundColor="#d50000"
+                    app:cardBackgroundColor="#ffffff"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="60dp">
+                    app:cardElevation="50dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="110dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:text="Become a Donner"
-                        android:textColor="#ffffff"
-                        android:textSize="23dp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/donnor" />
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingTop="15dp"
+                            android:text="Become a Donnor"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_chevron_right_black_24dp" />
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 

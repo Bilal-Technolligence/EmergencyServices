@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity {
     ImageView profileImage;
     private Uri imagePath;
     int count=0;
-    private String selection;
+    private String selection ="User";
 
     EditText name,contact,age,address;
 
@@ -36,32 +36,6 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        final String arr[] = getResources().getStringArray(R.array.selection);
-        AlertDialog.Builder dialog = new AlertDialog.Builder( Register.this );
-        dialog.setCancelable( false );
-        dialog.setTitle( "SignUp as : " );
-        dialog.setNegativeButton("Go Back", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(Register.this, Signup.class));
-                finish();
-            }
-        }).setSingleChoiceItems( R.array.selection, -1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                selection = arr[which];
-                if (selection.equals( "User" )) {
-                dialog.dismiss();
-
-                }
-                if (selection.equals( "Helper" )) {
-                    dialog.dismiss();
-
-                }
-
-            }
-        } );
-        dialog.show();
         name=(EditText) findViewById(R.id.name);
         contact=(EditText) findViewById(R.id.contact);
         profileImage = (ImageView) findViewById(R.id.profileImage);

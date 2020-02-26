@@ -25,7 +25,9 @@ public class MissingPersonsList extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_missing_persons_list);
+        getSupportActionBar().setTitle("Missing Person List");
+
+        // setContentView(R.layout.activity_missing_persons_list);
         recyclerView=findViewById(R.id.ffList);
         pacakgeAttrs = new ArrayList<MissingPersonAttributes>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

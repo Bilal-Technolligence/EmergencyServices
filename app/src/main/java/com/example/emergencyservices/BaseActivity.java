@@ -121,10 +121,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             startActivity(new Intent(this, NotificationActivity.class));
             finish();
         } else if (itemId == R.id.profile) {
-            Intent in = new Intent(this,Register.class);
-           // in.putExtra( "name", String.valueOf( userName ) );
-            startActivity(in);
-            finish();
+
         } else if (itemId == R.id.logout) {
             SharedPreferences settings = getSharedPreferences("Log", MODE_PRIVATE);
                 SharedPreferences.Editor editor = settings.edit();

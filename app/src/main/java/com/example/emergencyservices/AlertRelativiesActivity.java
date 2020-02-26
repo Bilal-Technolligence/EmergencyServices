@@ -16,6 +16,7 @@ import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,6 +54,7 @@ public class AlertRelativiesActivity extends BaseActivity {
     CardView btnFriends;
     EditText txtMessage;
     String message ,address1 ,name;
+    LocationListener locationListener;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
@@ -159,7 +161,7 @@ public class AlertRelativiesActivity extends BaseActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds: dataSnapshot.getChildren()){
-                            String id = ds.child("id").getValue().toString();
+                            final String id = ds.child("id").getValue().toString();
                             final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
                             notificationAttr notificationAttr = new notificationAttr();
                             notificationAttr.setId(uid);
@@ -171,10 +173,6 @@ public class AlertRelativiesActivity extends BaseActivity {
                             notificationAttr.setStatus("Unread");
                             databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
                             Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
-                            Intent i = new Intent(AlertRelativiesActivity.this , MyLocation.class);
-                            i.putExtra("id" , id);
-                            i.putExtra("uid" , uid);
-                            startService(i);
                         }
                     }
 
@@ -185,8 +183,10 @@ public class AlertRelativiesActivity extends BaseActivity {
                 });
 
 
+
             }
         } );
+
     }
 
     @Override

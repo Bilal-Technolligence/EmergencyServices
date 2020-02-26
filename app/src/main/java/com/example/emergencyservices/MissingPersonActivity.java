@@ -3,6 +3,7 @@ package com.example.emergencyservices;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,7 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 
 public class MissingPersonActivity extends BaseActivity {
-    Button btnSubmit;
+    CardView btnSubmit;
     ProgressDialog progressDialog;
     ImageView profileImage;
     private Uri imagePath;
@@ -47,12 +48,13 @@ public class MissingPersonActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Report Missing Person");
         //  setContentView(R.layout.activity_missing_person);
 
         name = (EditText) findViewById(R.id.name);
         profileImage = (ImageView) findViewById(R.id.profileImage);
         age = (EditText) findViewById(R.id.age);
-        btnSubmit = (Button) findViewById(R.id.submitData);
+        btnSubmit = (CardView) findViewById(R.id.submitData);
         address = (EditText) findViewById(R.id.address);
         relation = (EditText) findViewById(R.id.relation);
         fName = (EditText) findViewById(R.id.fName);

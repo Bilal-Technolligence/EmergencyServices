@@ -28,8 +28,8 @@ public class BloodList extends BaseActivity {
         super.onCreate(savedInstanceState);
     //    setContentView(R.layout.activity_blood_list);
 
-        bloodlist = findViewById(R.id.bloodList);
-        bloodlist.setLayoutManager(new LinearLayoutManager(this));
+        bloodlist = findViewById(R.id.recycler);
+        bloodlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         bloodAttrs = new ArrayList<BloodAttr>();
         databaseReference.child("BloodNeeder").addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,7 +53,7 @@ public class BloodList extends BaseActivity {
 
     @Override
     int getContentViewId() {
-        return R.layout.activity_blood_aactivity;
+        return R.layout.activity_blood_list;
     }
 
     @Override

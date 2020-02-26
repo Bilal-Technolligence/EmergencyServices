@@ -16,5 +16,6 @@
         <item>AB+</item>
         <item>AB-</item>
     </string-array>
+    <string name="title_activity_direction_on_map2">Map</string>
 
 </resources>
