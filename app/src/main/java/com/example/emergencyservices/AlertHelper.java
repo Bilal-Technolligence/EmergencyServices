@@ -58,6 +58,7 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             dref.child("Notification").child(helper).child(push).child("message").setValue(message.getText().toString());
                             dref.child("Notification").child(helper).child(push).child("id").setValue(push);
                             // Toast.makeText(getApplicationContext(), "location change", Toast.LENGTH_SHORT).show();
+
                             progressBar.setVisibility(View.GONE);
 
                         }

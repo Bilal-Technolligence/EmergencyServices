@@ -38,6 +38,7 @@ public class HelperNotificationAdapter extends RecyclerView.Adapter<HelperNotifi
         holder.datetime.setText(addServiceAttrs.get(position).getAddress());
         holder.title.setText(addServiceAttrs.get(position).getName());
 
+
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
