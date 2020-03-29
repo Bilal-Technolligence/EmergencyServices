@@ -24,33 +24,37 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HelperService extends Service {
-    private final String CHANNEL_ID ="personal" ;
+    private final String CHANNEL_ID = "personal";
     public final int NOTIFICATION_ID = 001;
 
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
 
-        Thread thread=new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (0<=1){
+                while (0 <= 1) {
                     try {
                         Thread.sleep(5000);
-                        final String user=intent.getStringExtra("id");
+                        final String user = intent.getStringExtra("id");
                         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                         databaseReference.child("Notification").child(user).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()){
-                                    for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                                        String status =  dataSnapshot1.child("status").getValue().toString();
-                                        if(status.equals("Unread")){
-                                            String id = dataSnapshot1.child("id").getValue().toString();
-                                            String msg = dataSnapshot1.child("message").getValue().toString();
-                                            databaseReference.child("Notification").child(user).child(id).child("status").setValue("Read");
-                                            generateAlert(msg);
+                                if (dataSnapshot.exists()) {
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        String status = dataSnapshot1.child("status").getValue().toString();
+                                        if (status.equals("Unread")) {
+                                            try {
+                                                String id = dataSnapshot1.child("id").getValue().toString();
+                                                String msg = dataSnapshot1.child("message").getValue().toString();
+                                                databaseReference.child("Notification").child(user).child(id).child("status").setValue("Read");
+                                                generateAlert(msg);
 
+                                            } catch (Exception e) {
+
+                                            }
                                         }
                                     }
 
@@ -76,19 +80,19 @@ public class HelperService extends Service {
 
     private void ShowNotification(String name, String msg) {
         //createNotificationChannel(name , msg);
-        Uri alarmSound = RingtoneManager.getDefaultUri( RingtoneManager.TYPE_NOTIFICATION);
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Intent notificationIntent = new Intent(this, NotificationActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 0, notificationIntent, 0);
-        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,CHANNEL_ID);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
         builder.setSmallIcon(R.drawable.logo).setContentTitle(name).setPriority(1).setSound(alarmSound).setContentText(msg).setContentIntent(pendingIntent);
-        Notification notification=builder.build();
+        Notification notification = builder.build();
         startForeground(123, notification);
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-    return null;
+        return null;
     }
 
     @Override
@@ -102,37 +106,37 @@ public class HelperService extends Service {
         Intent restartServiceIntent = new Intent(getApplicationContext(), this.getClass());
         restartServiceIntent.setPackage(getPackageName());
     }
-    private void generateAlert( String msg) {
+
+    private void generateAlert(String msg) {
         createNotificationChannel();
 
         Intent notificationIintent = new Intent(this, NotificationActivity.class);
-        TaskStackBuilder taskStackBuilder= TaskStackBuilder.create(this);
+        TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(this);
         taskStackBuilder.addNextIntent(notificationIintent);
-        PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(100,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(100, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
         builder.setSmallIcon(R.drawable.logo);
         builder.setContentText(msg);
         builder.setAutoCancel(true);
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        builder.setContentIntent( pendingIntent );
+        builder.setContentIntent(pendingIntent);
 
-        NotificationManager notificationManager = (NotificationManager)getSystemService( Context.NOTIFICATION_SERVICE );
-        notificationManager.notify(NOTIFICATION_ID,builder.build() );
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
 
     }
 
     private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "personal";
             String Description = "Please review time table";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel notificationChannel = new NotificationChannel( CHANNEL_ID,name,importance );
-            notificationChannel.setDescription( Description );
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            notificationChannel.setDescription(Description);
 
-            NotificationManager notificationManager = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
-            notificationManager.createNotificationChannel( notificationChannel );
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
         }
     }
 }

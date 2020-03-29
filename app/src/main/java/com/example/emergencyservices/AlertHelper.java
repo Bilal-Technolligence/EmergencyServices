@@ -46,16 +46,16 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     final DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
+
                     locationManager = (LocationManager) getSystemService( LOCATION_SERVICE );
                     locationListener = new LocationListener() {
                         @RequiresApi(api = Build.VERSION_CODES.P)
                         @Override
                         public void onLocationChanged(Location location) {
-
+                            dref.child("Notification").child(helper).child(push).child("status").setValue("Unread");
                             dref.child("Notification").child(helper).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
                             dref.child("Notification").child(helper).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
                             dref.child("Notification").child(helper).child(push).child("message").setValue(message.getText().toString());
-                            dref.child("Notification").child(helper).child(push).child("status").setValue("Unread");
                             dref.child("Notification").child(helper).child(push).child("id").setValue(push);
                             // Toast.makeText(getApplicationContext(), "location change", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
