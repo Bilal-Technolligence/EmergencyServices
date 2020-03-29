@@ -173,6 +173,7 @@ public class AlertRelativiesActivity extends BaseActivity {
                             notificationAttr.setStatus("Unread");
                             databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
                             Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
+                            startActivity(new Intent(AlertRelativiesActivity.this,VictumHelpActivity.class));
                         }
                     }
 

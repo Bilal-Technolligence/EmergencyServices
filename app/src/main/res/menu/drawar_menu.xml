@@ -4,10 +4,10 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_avatar"
         android:title="Profile"></item>
-    <item
-        android:id="@+id/stopLiveLocation"
-        android:icon="@drawable/ic_avatar"
-        android:title="Stop Live Location"></item>
+<!--    <item-->
+<!--        android:id="@+id/stopLiveLocation"-->
+<!--        android:icon="@drawable/ic_avatar"-->
+<!--        android:title="Stop Live Location"></item>-->
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
