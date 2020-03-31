@@ -35,13 +35,14 @@ import java.io.IOException;
 
 public class MissingPersonActivity extends BaseActivity {
     CardView btnSubmit;
-    ProgressDialog progressDialog;
+
     ImageView profileImage;
     private Uri imagePath;
     int count = 0;
     private String selection;
     private StorageReference StorageRef;
     EditText name, age, address, relation, fName;
+    ProgressDialog progressDialog;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
 
