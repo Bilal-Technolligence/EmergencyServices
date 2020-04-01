@@ -82,20 +82,20 @@ public class MissingPersonActivity extends BaseActivity {
                 String Address = address.getText().toString();
                 String Relation = relation.getText().toString();
 
-                if (Name.equals("")) {
-                    name.setError("This field cannot be empty");
+                if (!Name.matches("^[A-Za-z]+$") ) {
+                    name.setError("Please fill name(e.g Ali)");
                     name.setFocusable(true);
                 } else if (Age.equals("")) {
                     age.setError("This field cannot be empty");
                     age.setFocusable(true);
-                } else if (fatherName.equals("")) {
-                    fName.setError("This field cannot be empty");
+                } else if (!fatherName.matches("^[A-Za-z]+$")) {
+                    fName.setError("Please fill fname(e.g Ali)");
                     fName.setFocusable(true);
                 } else if (Address.equals("")) {
-                    address.setError("This field cannot be empty");
+                    address.setError("Please fill (e.g Rwp)");
                     address.setFocusable(true);
-                } else if (Relation.equals("")) {
-                    relation.setError("This field cannot be empty");
+                } else if (!Relation.matches("^[A-Za-z]+$")) {
+                    relation.setError("Please fill (e.g Friend)");
                     relation.setFocusable(true);
                 } else if (count == 0) {
                     Snackbar.make(v, "Please Select Image", Snackbar.LENGTH_LONG).show();

@@ -18,11 +18,60 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/nList"
                 android:layout_width="match_parent"
-                android:layout_height="661dp"
+                android:layout_height="550dp"
                 android:layout_above="@+id/navigationView"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="14dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="50dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/logout" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="15dp"
+                        android:text="LogOut"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_chevron_right_black_24dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
+
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

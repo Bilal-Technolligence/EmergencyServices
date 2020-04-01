@@ -94,7 +94,17 @@
 
             </com.google.android.material.button.MaterialButton>
 
-
+            <Button
+                android:id="@+id/forGetPassword"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ForgotPassword? "
+                android:textColor="@color/btnGreen"
+                android:background="@color/White"
+                android:backgroundTint="@color/White"
+                android:textSize="15sp"
+                />
 
     <LinearLayout
         android:layout_marginTop="10dp"

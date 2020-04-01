@@ -20,7 +20,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".UserProfileActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,6 +49,7 @@
         <activity android:name=".AlertRelativiesActivity" />
         <activity android:name=".AlertFriendsActivity" />
         <activity android:name=".HelperMainActivity" />
+        <activity android:name=".ForgetPassword" />
 
         <service android:name=".MyService" />
         <service android:name=".HelperService" />
