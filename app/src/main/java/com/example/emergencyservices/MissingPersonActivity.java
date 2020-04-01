@@ -82,19 +82,19 @@ public class MissingPersonActivity extends BaseActivity {
                 String Address = address.getText().toString();
                 String Relation = relation.getText().toString();
 
-                if (!Name.matches("^[A-Za-z]+$") ) {
+                if (!Name.matches("^[A-Za-z ]+$") ) {
                     name.setError("Please fill name(e.g Ali)");
                     name.setFocusable(true);
                 } else if (Age.equals("")) {
                     age.setError("This field cannot be empty");
                     age.setFocusable(true);
-                } else if (!fatherName.matches("^[A-Za-z]+$")) {
+                } else if (!fatherName.matches("^[A-Za-z ]+$")) {
                     fName.setError("Please fill fname(e.g Ali)");
                     fName.setFocusable(true);
                 } else if (Address.equals("")) {
                     address.setError("Please fill (e.g Rwp)");
                     address.setFocusable(true);
-                } else if (!Relation.matches("^[A-Za-z]+$")) {
+                } else if (!Relation.matches("^[A-Za-z ]+$")) {
                     relation.setError("Please fill (e.g Friend)");
                     relation.setFocusable(true);
                 } else if (count == 0) {

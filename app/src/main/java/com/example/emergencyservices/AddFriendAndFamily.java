@@ -134,7 +134,7 @@ public class AddFriendAndFamily extends BaseActivity {
     }
 
     private void updatePostList() {
-        recyclerView.setAdapter(new SearchListAdapter(pacakgeAttrs , getApplicationContext() , AddFriendAndFamily.this , User ));
+        recyclerView.setAdapter(new SearchListAdapter(AddFriendAndFamily.this,pacakgeAttrs , getApplicationContext() , AddFriendAndFamily.this , User ));
 
     }
 }

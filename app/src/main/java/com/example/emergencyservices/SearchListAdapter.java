@@ -30,8 +30,10 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Vi
     private Context context;
     Activity Addfriendfamily;
     String user;
-    public SearchListAdapter(ArrayList<UserAttr> addServiceAttrs, Context context, AddFriendAndFamily addFriendAndFamily, String user){
+    Activity activity;
+    public SearchListAdapter(Activity activity,ArrayList<UserAttr> addServiceAttrs, Context context, AddFriendAndFamily addFriendAndFamily, String user){
         this.context=context;
+        this.activity=activity;
         this.addServiceAttrs = addServiceAttrs;
         this.Addfriendfamily = addFriendAndFamily;
         this.user = user;
@@ -66,6 +68,9 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Vi
                         databaseReference.child("Relations").child(uid).child(user).child(Id).child("name").setValue(addServiceAttrs.get(position).getName());
                         Toast.makeText(context , "Relation added" , Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
+                        Intent intent=new Intent(activity,FriendAndFamilyList.class);
+                        intent.putExtra("id" , user);
+                        activity.startActivity(intent);
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

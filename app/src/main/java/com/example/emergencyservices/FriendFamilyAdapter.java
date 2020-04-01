@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class FriendFamilyAdapter extends RecyclerView.Adapter<FriendFamilyAdapte
                         DatabaseReference databaseReference = firebaseDatabase.getReference();
                         databaseReference.child("Relations").child(uid).child(user).child(id).setValue(null);
                         dialog.dismiss();
+
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
