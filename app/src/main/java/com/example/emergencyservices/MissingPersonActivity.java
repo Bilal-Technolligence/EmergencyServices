@@ -128,7 +128,8 @@ public class MissingPersonActivity extends BaseActivity {
                                                 databaseReference.child("MissingPerson").child(push).child("relation").setValue(relation.getText().toString());
 //
                                                 Toast.makeText(getApplicationContext(), "Inserted", Toast.LENGTH_LONG).show();
-
+                                                Intent intent = new Intent(MissingPersonActivity.this,MissingPersonsList.class);
+                                                startActivity(intent);
                                                 progressDialog.dismiss();
                                             }
                                         }
