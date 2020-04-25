@@ -43,7 +43,7 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_alert_helper);
-        final String helper = getIntent().getStringExtra("id");
+        final String helper = getIntent().getStringExtra("idPolice");
         progressBar = findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
         message = findViewById(R.id.txtMessage);

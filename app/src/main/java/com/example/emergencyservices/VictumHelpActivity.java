@@ -1,6 +1,7 @@
 package com.example.emergencyservices;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
@@ -8,12 +9,16 @@ import androidx.cardview.widget.CardView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,7 +46,7 @@ public class VictumHelpActivity extends BaseActivity {
         //btnlogOut = (CardView)findViewById( R.id.btnlogOut );
         alertRelativies = (CardView)findViewById( R.id.btnRelatives );
         alertPolice = (CardView)findViewById( R.id.btnPolice );
-        alertRescue = (CardView)findViewById( R.id.btnRescue );
+      //  alertRescue = (CardView)findViewById( R.id.btnRescue );
         alertAmbulance = (CardView)findViewById( R.id.btnAbulsnce );
         btnMissingPerson = (CardView)findViewById( R.id.btnMissingPerson );
         btnMissingPersonList = (CardView)findViewById( R.id.btnMissingPersonList );
@@ -56,7 +61,7 @@ public class VictumHelpActivity extends BaseActivity {
         alertFriends.setVisibility(View.GONE);
         alertRelativies.setVisibility(View.GONE);
         alertPolice.setVisibility(View.GONE);
-        alertRescue.setVisibility(View.GONE);
+      //  alertRescue.setVisibility(View.GONE);
         alertAmbulance.setVisibility(View.GONE);
         btnMissingPerson.setVisibility(View.GONE);
         btnMissingPersonList.setVisibility(View.GONE);
@@ -82,7 +87,7 @@ public class VictumHelpActivity extends BaseActivity {
                         alertFriends.setVisibility(View.GONE);
                         alertRelativies.setVisibility(View.GONE);
                         alertPolice.setVisibility(View.GONE);
-                        alertRescue.setVisibility(View.GONE);
+                    //    alertRescue.setVisibility(View.GONE);
                         alertAmbulance.setVisibility(View.GONE);
                         btnMissingPerson.setVisibility(View.GONE);
                         btnMissingPersonList.setVisibility(View.GONE);
@@ -92,7 +97,7 @@ public class VictumHelpActivity extends BaseActivity {
                         alertFriends.setVisibility(View.VISIBLE);
                         alertRelativies.setVisibility(View.VISIBLE);
                         alertPolice.setVisibility(View.VISIBLE);
-                        alertRescue.setVisibility(View.VISIBLE);
+                      //  alertRescue.setVisibility(View.VISIBLE);
                         alertAmbulance.setVisibility(View.VISIBLE);
                         btnMissingPerson.setVisibility(View.VISIBLE);
                         btnMissingPersonList.setVisibility(View.VISIBLE);
@@ -109,21 +114,75 @@ public class VictumHelpActivity extends BaseActivity {
             }
         });
 
+//        alertPolice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
+//                i.putExtra("id" , "police");
+//                startActivity(i);
+//            }
+//        });
         alertPolice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
-                i.putExtra("id" , "police");
-                startActivity(i);
-            }
-        });
-        alertRescue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
-                i.putExtra("id" , "rescue");
-                startActivity(i);
-            }
+//                Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
+//                i.putExtra("id" , "rescue");
+//                startActivity(i);
+
+                    LayoutInflater layoutInflater = LayoutInflater.from(VictumHelpActivity.this);
+                    View promptView = layoutInflater.inflate(R.layout.check, null);
+
+                    final AlertDialog alertD = new AlertDialog.Builder(VictumHelpActivity.this).create();
+
+                    final CheckBox ch1 = (CheckBox) promptView.findViewById(R.id.checkboxpolice);
+                final CheckBox ch2 = (CheckBox) promptView.findViewById(R.id.checkboxrescue);
+                    Button btnAlert = (Button) promptView.findViewById(R.id.btnAlertBoth);
+                btnAlert.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            try {
+                                if(ch1.isChecked() && ch2.isChecked()){
+                                    Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
+                                    i.putExtra("idPolice" , "police");
+                                    i.putExtra("idRescue" , "rescue");
+                                    startActivity(i);
+                                } else if(ch1.isChecked())
+                                {
+                                    Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
+                                    i.putExtra("idPolice" , "police");
+                                   // i.putExtra("idRescue" , "rescue");
+                                    startActivity(i);
+
+                                } else if(ch2.isChecked())
+                                {
+                                    Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
+                                   // i.putExtra("idPolice" , "police");
+                                     i.putExtra("idRescue" , "rescue");
+                                    startActivity(i);
+
+                                }
+                                else {
+                                    Toast.makeText(VictumHelpActivity.this, "CheckBox cannot be empty", Toast.LENGTH_SHORT).show();
+
+                                }
+
+
+                            }catch(Exception e) {
+                                Toast.makeText(getApplicationContext(),"Unable to Connect Try Again...",
+                                        Toast.LENGTH_LONG).show();
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+
+                    alertD.setView(promptView);
+
+                    alertD.show();
+
+                }
+
+
+
         });
         alertAmbulance.setOnClickListener(new View.OnClickListener() {
             @Override
