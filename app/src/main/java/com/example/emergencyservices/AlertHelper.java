@@ -106,7 +106,7 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             dref.child("Notification").child(helper).child(push).child("name").setValue(name);
                             dref.child("Notification").child(helper).child(push).child("message").setValue(message.getText().toString());
                             dref.child("Notification").child(helper).child(push).child("id").setValue(push);
-                            // Toast.makeText(getApplicationContext(), "location change", Toast.LENGTH_SHORT).show();
+
                             if(helper2 !=null){
                                 dref.child("Notification").child(helper2).child(push).child("status").setValue("Unread");
                                 dref.child("Notification").child(helper2).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
@@ -118,7 +118,8 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             }
 
                             progressBar.setVisibility(View.GONE);
-
+                             Toast.makeText(getApplicationContext(), "You alert has sent", Toast.LENGTH_LONG).show();
+                            finish();
                         }
 
                         @Override
