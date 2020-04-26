@@ -43,7 +43,8 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_alert_helper);
-        final String helper = getIntent().getStringExtra("idPolice");
+        final String helper = getIntent().getStringExtra("id");
+        final String helper2 = getIntent().getStringExtra("id2");
         progressBar = findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
         message = findViewById(R.id.txtMessage);
@@ -106,6 +107,15 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             dref.child("Notification").child(helper).child(push).child("message").setValue(message.getText().toString());
                             dref.child("Notification").child(helper).child(push).child("id").setValue(push);
                             // Toast.makeText(getApplicationContext(), "location change", Toast.LENGTH_SHORT).show();
+                            if(helper2 !=null){
+                                dref.child("Notification").child(helper2).child(push).child("status").setValue("Unread");
+                                dref.child("Notification").child(helper2).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
+                                dref.child("Notification").child(helper2).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
+                                dref.child("Notification").child(helper2).child(push).child("address").setValue(address1);
+                                dref.child("Notification").child(helper2).child(push).child("name").setValue(name);
+                                dref.child("Notification").child(helper2).child(push).child("message").setValue(message.getText().toString());
+                                dref.child("Notification").child(helper2).child(push).child("id").setValue(push);
+                            }
 
                             progressBar.setVisibility(View.GONE);
 

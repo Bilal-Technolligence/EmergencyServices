@@ -142,13 +142,13 @@ public class VictumHelpActivity extends BaseActivity {
                             try {
                                 if(ch1.isChecked() && ch2.isChecked()){
                                     Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
-                                    i.putExtra("idPolice" , "police");
-                                    i.putExtra("idRescue" , "rescue");
+                                    i.putExtra("id" , "police");
+                                    i.putExtra("id2" , "rescue");
                                     startActivity(i);
                                 } else if(ch1.isChecked())
                                 {
                                     Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
-                                    i.putExtra("idPolice" , "police");
+                                    i.putExtra("id" , "police");
                                    // i.putExtra("idRescue" , "rescue");
                                     startActivity(i);
 
@@ -156,7 +156,7 @@ public class VictumHelpActivity extends BaseActivity {
                                 {
                                     Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
                                    // i.putExtra("idPolice" , "police");
-                                     i.putExtra("idRescue" , "rescue");
+                                     i.putExtra("id" , "rescue");
                                     startActivity(i);
 
                                 }
