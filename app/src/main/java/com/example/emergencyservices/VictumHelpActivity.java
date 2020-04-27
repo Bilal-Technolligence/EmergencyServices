@@ -152,6 +152,7 @@ public class VictumHelpActivity extends BaseActivity {
                                    // i.putExtra("idRescue" , "rescue");
                                     startActivity(i);
 
+
                                 } else if(ch2.isChecked())
                                 {
                                     Intent i =new Intent(VictumHelpActivity.this,AlertHelper.class);
