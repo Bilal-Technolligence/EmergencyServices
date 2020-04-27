@@ -103,6 +103,9 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
 //                                addressString = address.get(0).getAddressLine(0);
                             } catch (IOException e) {
                                 // Handle IOException
+                                //                                addressText.setText(address.get(0).getAddressLine(0)); //This will display the final address.
+
+
                             }
                             dref.child("Notification").child(helper).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
                             dref.child("Notification").child(helper).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
