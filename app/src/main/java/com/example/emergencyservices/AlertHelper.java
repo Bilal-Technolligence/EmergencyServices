@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -107,7 +108,9 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             dref.child("Notification").child(helper).child(push).child("message").setValue(message.getText().toString());
                             dref.child("Notification").child(helper).child(push).child("id").setValue(push);
 
+
                             if(helper2 !=null){
+
                                 dref.child("Notification").child(helper2).child(push).child("status").setValue("Unread");
                                 dref.child("Notification").child(helper2).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
                                 dref.child("Notification").child(helper2).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
@@ -117,9 +120,6 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                                 dref.child("Notification").child(helper2).child(push).child("id").setValue(push);
                             }
 
-                            progressBar.setVisibility(View.GONE);
-                             Toast.makeText(getApplicationContext(), "You alert has sent", Toast.LENGTH_LONG).show();
-                            finish();
                         }
 
                         @Override
@@ -142,6 +142,7 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
 
                         }
 
+
                     };
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -161,6 +162,13 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+
+
+                Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
+                startActivity(new Intent(AlertHelper.this,VictumHelpActivity.class));
+               // Toast.makeText(getApplicationContext(), "You alert has sent", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
