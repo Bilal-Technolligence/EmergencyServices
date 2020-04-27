@@ -70,6 +70,10 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     final DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                     final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
+                    dref.child("Notification").child(helper).child(push).child("status").setValue("Unread");
+                    if(helper2 !=null) {
+                        dref.child("Notification").child(helper2).child(push).child("status").setValue("Unread");
+                    }
 
                     locationManager = (LocationManager) getSystemService( LOCATION_SERVICE );
                     locationListener = new LocationListener() {
@@ -100,7 +104,6 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             } catch (IOException e) {
                                 // Handle IOException
                             }
-                            dref.child("Notification").child(helper).child(push).child("status").setValue("Unread");
                             dref.child("Notification").child(helper).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
                             dref.child("Notification").child(helper).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
                             dref.child("Notification").child(helper).child(push).child("address").setValue(address1);
@@ -111,7 +114,6 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
 
                             if(helper2 !=null){
 
-                                dref.child("Notification").child(helper2).child(push).child("status").setValue("Unread");
                                 dref.child("Notification").child(helper2).child(push).child("lon").setValue(String.valueOf(location.getLongitude()));
                                 dref.child("Notification").child(helper2).child(push).child("lat").setValue(String.valueOf(location.getLatitude()));
                                 dref.child("Notification").child(helper2).child(push).child("address").setValue(address1);
