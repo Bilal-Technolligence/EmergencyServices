@@ -11,9 +11,11 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,8 +52,10 @@ public class AlertFriendsActivity extends BaseActivity {
     ArrayList<UserAttr> pacakgeAttrs;
     FriendFamilyAdapter adapter;
     RecyclerView recyclerView;
-    CardView btnRelatives;
+    CardView btnRelatives,btnCancel;
     EditText txtMessage;
+    TextView txtTime;
+    CountDownTimer cTimer;
     String message ,address1 ,name;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -152,10 +156,32 @@ public class AlertFriendsActivity extends BaseActivity {
             }
         });
         btnRelatives = findViewById(R.id.btnFriends);
+        btnCancel = findViewById(R.id.btnCancel);
         txtMessage = findViewById(R.id.txtMessage);
+        txtTime = findViewById(R.id.time);
+        btnCancel.setVisibility(View.GONE);
+        txtTime.setVisibility(View.GONE);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Toast.makeText(getApplicationContext() , "Message cancelled " ,  Toast.LENGTH_LONG).show();
+
+
+            }
+        });
         btnRelatives.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                cTimer = new CountDownTimer(7000, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        btnCancel.setVisibility(View.VISIBLE);
+                        txtTime.setVisibility(View.VISIBLE);
+                        txtTime.setText("Message will send in " + millisUntilFinished / 1000 + " sec");
+                    }
+                    public void onFinish() {
+                        btnCancel.setVisibility(View.GONE);
+                        txtTime.setVisibility(View.GONE);
                 message = txtMessage.getText().toString();
                 databaseReference.child("Relations").child(uid).child("Friends").addValueEventListener(new ValueEventListener() {
                     @Override
@@ -183,7 +209,11 @@ public class AlertFriendsActivity extends BaseActivity {
 
                     }
                 });
-            }
+
+                    }
+                };
+                cTimer.start();
+                    }
         } );
 
 
@@ -197,5 +227,11 @@ public class AlertFriendsActivity extends BaseActivity {
     @Override
     int getNavigationMenuItemId() {
         return R.id.nav_home;
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(cTimer!=null)
+            cTimer.cancel();
     }
 }

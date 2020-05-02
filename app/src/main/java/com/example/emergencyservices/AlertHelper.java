@@ -15,9 +15,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -34,12 +36,14 @@ import java.util.Locale;
 
 public class AlertHelper extends BaseActivity {
 EditText message;
-CardView alert;
+CardView alert,btnCancel;
 DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     LocationManager locationManager;
     LocationListener locationListener;
     ProgressBar progressBar;
     String name, address1;
+    TextView txtTime;
+    CountDownTimer cTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,10 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
         progressBar.setVisibility(View.GONE);
         message = findViewById(R.id.txtMessage);
         alert = findViewById(R.id.btnHelper);
+        btnCancel = findViewById(R.id.btnCancel);
+        txtTime = findViewById(R.id.time);
+        btnCancel.setVisibility(View.GONE);
+        txtTime.setVisibility(View.GONE);
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         dref.child("Users").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,10 +70,26 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
 
             }
         });
-        alert.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
+                finish();
+                Toast.makeText(getApplicationContext() , "Message cancelled " ,  Toast.LENGTH_LONG).show();
+            }
+        });
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                cTimer = new CountDownTimer(7000, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        btnCancel.setVisibility(View.VISIBLE);
+                        txtTime.setVisibility(View.VISIBLE);
+                        txtTime.setText("Message will send in " + millisUntilFinished / 1000 + " sec");
+                    }
+                    public void onFinish() {
+                        btnCancel.setVisibility(View.GONE);
+                        txtTime.setVisibility(View.GONE);
+                //progressBar.setVisibility(View.VISIBLE);
                 try {
                     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     final DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
@@ -174,6 +198,9 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                 startActivity(new Intent(AlertHelper.this,VictumHelpActivity.class));
                // Toast.makeText(getApplicationContext(), "You alert has sent", Toast.LENGTH_LONG).show();
                 finish();
+                    }
+                };
+                cTimer.start();
             }
         });
 
@@ -187,5 +214,11 @@ DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
     @Override
     int getNavigationMenuItemId() {
         return R.id.nav_home;
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(cTimer!=null)
+            cTimer.cancel();
     }
 }

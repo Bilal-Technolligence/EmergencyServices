@@ -20,9 +20,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -51,8 +53,10 @@ public class AlertRelativiesActivity extends BaseActivity {
     ArrayList<UserAttr> pacakgeAttrs;
     FriendFamilyAdapter adapter;
     RecyclerView recyclerView;
-    CardView btnFriends;
+    CardView btnFriends,btnCancel;
     EditText txtMessage;
+    TextView txtTime;
+    CountDownTimer cTimer;
     String message ,address1 ,name;
     LocationListener locationListener;
 
@@ -152,37 +156,63 @@ public class AlertRelativiesActivity extends BaseActivity {
             }
         });
         btnFriends = findViewById(R.id.btnFriends);
+        btnCancel = findViewById(R.id.btnCancel);
         txtMessage = findViewById(R.id.txtMessage);
+        txtTime = findViewById(R.id.time);
+        btnCancel.setVisibility(View.GONE);
+        txtTime.setVisibility(View.GONE);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Toast.makeText(getApplicationContext() , "Message cancelled " ,  Toast.LENGTH_LONG).show();
+
+
+            }
+        });
         btnFriends.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                message = txtMessage.getText().toString();
-                databaseReference.child("Relations").child(uid).child("Family").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds: dataSnapshot.getChildren()){
-                            final String id = ds.child("id").getValue().toString();
-                            final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
-                            notificationAttr notificationAttr = new notificationAttr();
-                            notificationAttr.setId(uid);
-                            notificationAttr.setLat(lati);
-                            notificationAttr.setLon(loni);
-                            notificationAttr.setAddress(address1);
-                            notificationAttr.setMessage(message);
-                            notificationAttr.setName(name);
-                            notificationAttr.setStatus("Unread");
-                            databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
-                            Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
-                            startActivity(new Intent(AlertRelativiesActivity.this,VictumHelpActivity.class));
-                        }
+                 cTimer = new CountDownTimer(7000, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        btnCancel.setVisibility(View.VISIBLE);
+                        txtTime.setVisibility(View.VISIBLE);
+                        txtTime.setText("Message will send in " + millisUntilFinished / 1000 + " sec");
                     }
+                    public void onFinish() {
+                        btnCancel.setVisibility(View.GONE);
+                        txtTime.setVisibility(View.GONE);
+                        message = txtMessage.getText().toString();
+                        databaseReference.child("Relations").child(uid).child("Family").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                                    final String id = ds.child("id").getValue().toString();
+                                    final String push = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
+                                    notificationAttr notificationAttr = new notificationAttr();
+                                    notificationAttr.setId(uid);
+                                    notificationAttr.setLat(lati);
+                                    notificationAttr.setLon(loni);
+                                    notificationAttr.setAddress(address1);
+                                    notificationAttr.setMessage(message);
+                                    notificationAttr.setName(name);
+                                    notificationAttr.setStatus("Unread");
+                                    databaseReference.child("Notification").child(id).child(uid).setValue(notificationAttr);
+                                    Snackbar.make(v,"Alert Sent",Snackbar.LENGTH_LONG).show();
+                                    startActivity(new Intent(AlertRelativiesActivity.this,VictumHelpActivity.class));
+                                }
+                            }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
 
                     }
-                });
-
+                };
+                cTimer.start();
 
 
             }
@@ -198,5 +228,12 @@ public class AlertRelativiesActivity extends BaseActivity {
     @Override
     int getNavigationMenuItemId() {
         return R.id.nav_home;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(cTimer!=null)
+            cTimer.cancel();
     }
 }
