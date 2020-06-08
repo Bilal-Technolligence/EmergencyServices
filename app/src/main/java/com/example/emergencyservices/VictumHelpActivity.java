@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +43,11 @@ public class VictumHelpActivity extends BaseActivity {
         super.onCreate( savedInstanceState );
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
        // setContentView( R.layout.activity_victum_help );
+    RelativeLayout relativeLayout = findViewById(R.id.victumlayout);
+    AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+    animationDrawable.setEnterFadeDuration(2000);
+    animationDrawable.setExitFadeDuration(4000);
+    animationDrawable.start();
 
         alertFriends = (CardView) findViewById( R.id.btnFridends );
         //btnlogOut = (CardView)findViewById( R.id.btnlogOut );

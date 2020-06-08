@@ -35,9 +35,17 @@ public class FriendAndFamilyList extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       //  setContentView(R.layout.activity_friend_and_family_list);
-        recyclerView=findViewById(R.id.ffList);
+
         Intent i = getIntent();
         User = i.getStringExtra("id");
+        if (User.equals("Friends")){
+            getSupportActionBar().setTitle("Friends List");
+        } else {
+
+            getSupportActionBar().setTitle("Family List");
+        }
+        recyclerView=findViewById(R.id.ffList);
+
         pacakgeAttrs = new ArrayList<UserAttr>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:id="@+id/victumlayout"
+    android:background="@drawable/background_animlist"
     android:orientation="vertical"
     tools:context=".VictumHelpActivity">
 
@@ -191,7 +192,7 @@
                                 android:layout_marginTop="1dp"
                                 android:layout_weight="1"
                                 android:gravity="left"
-                                android:paddingTop="15dp"
+                                android:paddingTop="2dp"
                                 android:text="Alert Police , Rescue"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20dp" />
@@ -381,11 +382,11 @@
 
                             <TextView
                                 android:layout_width="120dp"
-                                android:layout_height="60dp"
+                                android:layout_height="match_parent"
                                 android:layout_marginTop="1dp"
                                 android:layout_weight="1"
                                 android:gravity="left"
-                                android:paddingTop="15dp"
+                                android:paddingTop="2dp"
                                 android:text="Missing Person List"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20dp" />

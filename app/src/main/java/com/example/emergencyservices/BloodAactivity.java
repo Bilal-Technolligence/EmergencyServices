@@ -34,6 +34,7 @@ public class BloodAactivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
       //  setContentView( R.layout.activity_blood_aactivity );
+        getSupportActionBar().setTitle("Blood Donate");
         donner = findViewById(R.id.donner);
         donateBlood = findViewById(R.id.donateBlood);
 

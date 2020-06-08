@@ -28,6 +28,8 @@ public class NotificationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_notification);
+        getSupportActionBar().setTitle("Notifications");
+
 
         recyclerView=findViewById(R.id.nList);
         pacakgeAttrs = new ArrayList<notificationAttr>();
