@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,8 +50,7 @@ public class UserProfileActivity extends BaseActivity {
         eAddress=(TextView)findViewById(R.id.txtAddress);
         pupdate=(Button) findViewById(R.id.profCONFIRM);
 
-        Intent in =getIntent();
-        currentuser = in.getStringExtra( "name" );
+        currentuser  = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
