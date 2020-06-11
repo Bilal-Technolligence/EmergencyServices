@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/victumlayout"
-    android:background="@drawable/background_animlist"
     android:orientation="vertical"
     tools:context=".VictumHelpActivity">
 
@@ -56,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-
+                android:id="@+id/victumlayout"
+                android:background="@drawable/background_animlist"
                 android:orientation="vertical">
 
                 <LinearLayout

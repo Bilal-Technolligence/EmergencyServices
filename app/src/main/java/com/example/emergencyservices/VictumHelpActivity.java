@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -37,14 +38,16 @@ public class VictumHelpActivity extends BaseActivity {
     TextView txt;
     BottomNavigationView bottomNavigationView;
     ProgressBar prg;
+    private ViewGroup rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
        // setContentView( R.layout.activity_victum_help );
-    RelativeLayout relativeLayout = findViewById(R.id.victumlayout);
-    AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+    //RelativeLayout relativeLayout = findViewById(R.id.victumlayout);
+        rootView = (ViewGroup) findViewById(R.id.victumlayout);
+    AnimationDrawable animationDrawable = (AnimationDrawable) rootView.getBackground();
     animationDrawable.setEnterFadeDuration(2000);
     animationDrawable.setExitFadeDuration(4000);
     animationDrawable.start();
