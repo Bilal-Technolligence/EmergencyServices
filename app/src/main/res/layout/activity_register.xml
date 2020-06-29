@@ -115,6 +115,7 @@
         android:textColorHint="@color/colorRed">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/address"
+            android:inputType="text"
             android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

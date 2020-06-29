@@ -62,7 +62,8 @@ public class Register extends AppCompatActivity {
                 String Age = age.getText().toString();
                 String Contact = contact.getText().toString();
                 String Address = address.getText().toString();
-                if (!Name.matches("^[A-Za-z]+$") ){
+
+                if (!Name.matches("[a-zA-Z ]+" )){
                     name.setError("Enter Valid Name");
                     name.setFocusable(true);
                 } else if (Age.equals("")){
@@ -71,7 +72,7 @@ public class Register extends AppCompatActivity {
                 } else if (Contact.equals("")){
                     contact.setError("Enter Valid Contact Number");
                     contact.setFocusable(true);
-                } else if (!Address.matches("^[A-Za-z]+$") ){
+                } else if (Address.equals("") ){
                     address.setError("Enter Valid Address");
                     address.setFocusable(true);
                 } else if (count==0){
