@@ -43,6 +43,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                             reference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if(dataSnapshot.exists()){
                                     String cat = dataSnapshot.child("category").getValue().toString();
                                     if(cat.equals("User")){
                                         activity.startActivity(new Intent(activity, VictumHelpActivity.class));
@@ -56,7 +57,7 @@ public class FirbaseAuthenticationClass extends AppCompatActivity {
                                         progressDialog.dismiss();
                                     }
 
-                                }
+                                }else{progressDialog.dismiss();}}
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
