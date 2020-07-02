@@ -4,6 +4,7 @@ public class MissingPersonAttributes {
     String Name;
     String fatherName;
     String Age;
+    String Contact;
     String Address;
     String Relation;
     String imgurl;
@@ -14,15 +15,24 @@ public class MissingPersonAttributes {
     }
 
 
-    public MissingPersonAttributes(String name, String fatherName, String age, String address, String relation, String imgurl, String id, String uid) {
+    public MissingPersonAttributes(String name, String fatherName, String age, String contact, String address, String relation, String imgurl, String id, String uid) {
         Name = name;
         this.fatherName = fatherName;
         Age = age;
+        Contact = contact;
         Address = address;
         Relation = relation;
         this.imgurl = imgurl;
         this.id = id;
         this.uid = uid;
+    }
+
+    public String getContact() {
+        return Contact;
+    }
+
+    public void setContact(String contact) {
+        Contact = contact;
     }
 
     public String getUid() {

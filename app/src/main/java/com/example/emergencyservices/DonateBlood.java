@@ -74,7 +74,7 @@ public class DonateBlood extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Toast.makeText(getApplicationContext() , "Message cancelled " ,  Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext() , "Request cancelled " ,  Toast.LENGTH_LONG).show();
             }
         });
         button.setOnClickListener(new View.OnClickListener() {

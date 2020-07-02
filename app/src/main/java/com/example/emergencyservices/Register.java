@@ -70,7 +70,7 @@ public class Register extends AppCompatActivity {
                     age.setError("Enter Valid Age");
                     age.setFocusable(true);
                 } else if (Contact.equals("")){
-                    contact.setError("Enter Valid Contact Number");
+                    contact.setError("Contact length must be grater than ten digits ");
                     contact.setFocusable(true);
                 } else if (Address.equals("") ){
                     address.setError("Enter Valid Address");

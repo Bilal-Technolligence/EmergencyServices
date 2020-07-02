@@ -41,7 +41,7 @@ public class MissingPersonActivity extends BaseActivity {
     int count = 0;
     private String selection;
     private StorageReference StorageRef;
-    EditText name, age, address, relation, fName;
+    EditText name, age, address, relation, fName,phoneNumber;
     ProgressDialog progressDialog;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -55,6 +55,8 @@ public class MissingPersonActivity extends BaseActivity {
         name = (EditText) findViewById(R.id.name);
         profileImage = (ImageView) findViewById(R.id.profileImage);
         age = (EditText) findViewById(R.id.age);
+        phoneNumber = (EditText) findViewById(R.id.contactNumber);
+
         btnSubmit = (CardView) findViewById(R.id.submitData);
         address = (EditText) findViewById(R.id.address);
         relation = (EditText) findViewById(R.id.relation);
@@ -79,6 +81,8 @@ public class MissingPersonActivity extends BaseActivity {
                 String Name = name.getText().toString().toUpperCase();
                 String fatherName = fName.getText().toString();
                 String Age = age.getText().toString();
+                String Contact =phoneNumber .getText().toString();
+
                 String Address = address.getText().toString();
                 String Relation = relation.getText().toString();
 
@@ -88,7 +92,10 @@ public class MissingPersonActivity extends BaseActivity {
                 } else if (Age.equals("")) {
                     age.setError("This field cannot be empty");
                     age.setFocusable(true);
-                } else if (!fatherName.matches("^[A-Za-z ]+$")) {
+                } else if (Contact.equals("")) {
+                    phoneNumber.setError("This field cannot be empty");
+                    phoneNumber.setFocusable(true);
+                }else if (!fatherName.matches("^[A-Za-z ]+$")) {
                     fName.setError("Please fill fname(e.g Ali)");
                     fName.setFocusable(true);
                 } else if (Address.equals("")) {
@@ -123,6 +130,7 @@ public class MissingPersonActivity extends BaseActivity {
                                                 databaseReference.child("MissingPerson").child(push).child("name").setValue(name.getText().toString());
                                                 databaseReference.child("MissingPerson").child(push).child("fatherName").setValue(fName.getText().toString());
                                                 databaseReference.child("MissingPerson").child(push).child("age").setValue(age.getText().toString());
+                                                databaseReference.child("MissingPerson").child(push).child("contact").setValue(phoneNumber.getText().toString());
                                                 databaseReference.child("MissingPerson").child(push).child("address").setValue(address.getText().toString());
                                                 databaseReference.child("MissingPerson").child(push).child("uid").setValue(id);
                                                 databaseReference.child("MissingPerson").child(push).child("relation").setValue(relation.getText().toString());

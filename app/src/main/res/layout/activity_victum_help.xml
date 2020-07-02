@@ -386,7 +386,7 @@
                                 android:layout_weight="1"
                                 android:gravity="left"
                                 android:paddingTop="2dp"
-                                android:text="Missing Person List"
+                                android:text="Missing Person List  "
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20dp" />
 

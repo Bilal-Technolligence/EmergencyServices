@@ -45,6 +45,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
         holder.name.setText(missingPersonAttributes.get(position).getName());
         holder.fName.setText(missingPersonAttributes.get(position).getFatherName());
         holder.age.setText(missingPersonAttributes.get(position).getAge());
+        holder.contact.setText(missingPersonAttributes.get(position).getContact());
         holder.address.setText(missingPersonAttributes.get(position).getAddress());
         holder.relation.setText(missingPersonAttributes.get(position).getRelation());
         Picasso.get().load(missingPersonAttributes.get(position).getImgurl()).into(holder.img);
@@ -59,7 +60,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
-        TextView name,fName,age,address,relation;
+        TextView name,fName,age,address,relation,contact;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +68,7 @@ public class MissingList extends RecyclerView.Adapter<MissingList.ViewHolder> {
             name = (TextView) itemView.findViewById(R.id.txtName);
             fName = (TextView) itemView.findViewById(R.id.txtfName);
             age = (TextView) itemView.findViewById(R.id.txtage);
+            contact = (TextView) itemView.findViewById(R.id.txtContactNumber);
             address = (TextView) itemView.findViewById(R.id.txtaddress);
             relation = (TextView) itemView.findViewById(R.id.txtrelation);
 
